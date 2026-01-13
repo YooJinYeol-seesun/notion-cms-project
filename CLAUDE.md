@@ -103,3 +103,8 @@ npm run lint       # ESLint 실행
 - Tailwind CSS v4의 새로운 문법 사용 (tailwind.config.js 불필요)
 - CSS 변수는 `app/globals.css`의 `:root`와 `.dark`에 정의됨
 - 다크 모드 지원: HTML 요소에 `.dark` 클래스 추가 필요
+
+## Project Context
+
+- PRD 문서: @docs/PRD.md
+- 개발 로드맵: @docs/ROADMAP.md
