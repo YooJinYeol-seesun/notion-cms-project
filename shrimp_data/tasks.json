@@ -1,0 +1,2053 @@
+{
+  "tasks": [
+    {
+      "id": "b1c3c20c-31fd-4ae6-b7d3-646887a994bb",
+      "name": "[Phase 1-Epic 1.1] Next.js 및 TypeScript 기본 설정",
+      "description": "Next.js 16.1.1 프로젝트 초기화 및 TypeScript strict 모드 설정. tsconfig.json에서 strict: true 확인, 경로 별칭 설정 (@/components, @/lib, @/services, @/types)",
+      "notes": "프로젝트 초기 설정은 이미 create-next-app으로 진행됨. 추가 설정만 필요",
+      "status": "completed",
+      "dependencies": [],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:33:32.950Z",
+      "relatedFiles": [
+        {
+          "path": "tsconfig.json",
+          "type": "TO_MODIFY",
+          "description": "strict 모드 확인, 경로 별칭 설정"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "REFERENCE",
+          "description": "Next.js 설정 확인"
+        }
+      ],
+      "implementationGuide": "1. tsconfig.json 확인 및 strict 모드 활성화\\n2. 경로 별칭 설정 (compilerOptions.paths)\\n3. next.config.ts 확인\\n4. npm run dev 실행 및 정상 작동 확인\\n5. npm run lint 실행 및 에러 없음 확인",
+      "verificationCriteria": "1. tsconfig.json strict: true 확인\\n2. 경로 별칭 4개 이상 설정\\n3. npm run dev 실행 성공\\n4. npm run lint 에러 없음\\n5. TypeScript 타입 검사 정상",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행",
+      "summary": "tsconfig.json strict 모드 활성화 및 경로 별칭 설정 완료. npm run build 성공, TypeScript 컴파일 에러 없음, ESLint 검사 통과. 모든 페이지 라우팅 정상 동작.",
+      "completedAt": "2026-01-18T05:33:32.948Z"
+    },
+    {
+      "id": "7d3f92a4-6946-4fb5-a484-da5e00fb05a2",
+      "name": "[Phase 1-Epic 1.1] Tailwind CSS v4 및 PostCSS 설정",
+      "description": "Tailwind CSS v4 설정, @tailwindcss/postcss 설정, app/globals.css에 CSS 변수 추가 (라이트/다크 모드)",
+      "notes": "Tailwind v4는 tailwind.config.js 불필요. CSS 변수는 OKLch 색상 시스템 사용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "b1c3c20c-31fd-4ae6-b7d3-646887a994bb"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "app/globals.css",
+          "type": "TO_MODIFY",
+          "description": "Tailwind import, CSS 변수 정의"
+        },
+        {
+          "path": "postcss.config.mjs",
+          "type": "REFERENCE",
+          "description": "PostCSS 설정"
+        },
+        {
+          "path": "tailwind.config.ts",
+          "type": "REFERENCE",
+          "description": "Tailwind 설정"
+        }
+      ],
+      "implementationGuide": "1. app/globals.css 확인 및 Tailwind import (@import 문법)\\n2. :root와 .dark 클래스에 CSS 변수 정의 (oklch 색상 시스템)\\n3. 라이트 모드: --background oklch(1 0 0), --foreground oklch(0 0 0)\\n4. 다크 모드: --background oklch(0.145 0 0), --foreground oklch(1 0 0)\\n5. postcss.config.mjs 확인\\n6. tailwind.config.ts 확인 (v4는 js 불필요)",
+      "verificationCriteria": "1. app/globals.css에 @tailwindcss/postcss import\\n2. :root에 라이트 모드 CSS 변수 최소 5개\\n3. .dark에 다크 모드 CSS 변수 최소 5개\\n4. npm run dev 실행 후 스타일 적용 확인",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "2ac114d3-a684-4795-8de3-32e2fb3ad44e",
+      "name": "[Phase 1-Epic 1.1] shadcn/ui 및 ESLint 설정",
+      "description": "shadcn/ui components.json 생성 (New York style, RSC enabled), ESLint 설정 확인",
+      "notes": "components.json은 shadcn CLI로 자동 생성되거나 수동으로 생성. RSC enabled 필수",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "7d3f92a4-6946-4fb5-a484-da5e00fb05a2"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "components.json",
+          "type": "CREATE",
+          "description": "shadcn/ui 설정"
+        },
+        {
+          "path": "eslint.config.mjs",
+          "type": "TO_MODIFY",
+          "description": "ESLint 규칙 확인"
+        }
+      ],
+      "implementationGuide": "1. components.json 확인 (baseColor, cssVariables, rsc: true)\\n2. New York style 설정 (@shadcn-ui/ui/dist/registry/new-york)\\n3. shadcn/ui alias 설정 (@/components/ui)\\n4. eslint.config.mjs 확인 (Next.js Core Web Vitals)\\n5. npx shadcn-ui@latest init 필요시 실행",
+      "verificationCriteria": "1. components.json 존재하고 rsc: true 설정\\n2. baseColor와 cssVariables 설정\\n3. eslint.config.mjs에 Next.js 규칙 포함\\n4. npm run lint 실행 성공",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "bd4fd34e-9f8b-4f93-bc3f-d11ceb2432e6",
+      "name": "[Phase 1-Epic 1.2] 폴더 구조 및 경로 별칭 최종 확인",
+      "description": "shrimp-rules.md에 정의된 폴더 구조 생성 및 확인: app/, components/, lib/utils.ts, services/, types/",
+      "notes": "폴더 구조는 Phase 1.1~1.3 이후 이 작업에서 최종 확인",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "2ac114d3-a684-4795-8de3-32e2fb3ad44e"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "components/",
+          "type": "CREATE",
+          "description": "컴포넌트 디렉토리"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "TO_MODIFY",
+          "description": "유틸리티 함수 (cn)"
+        },
+        {
+          "path": "services/",
+          "type": "CREATE",
+          "description": "서비스 디렉토리"
+        },
+        {
+          "path": "types/",
+          "type": "CREATE",
+          "description": "타입 정의 디렉토리"
+        }
+      ],
+      "implementationGuide": "1. 다음 디렉토리 생성 확인:\\n   - components/ui/ (shadcn)\\n   - components/layout/\\n   - components/common/\\n   - lib/ (utils.ts 위치)\\n   - services/\\n   - types/\\n2. tsconfig.json paths 최종 확인 (@/components, @/lib, @/services, @/types)\\n3. 각 디렉토리에 .gitkeep 추가 (선택)",
+      "verificationCriteria": "1. 모든 필수 디렉토리 존재\\n2. tsconfig.json 경로 별칭 4개 이상\\n3. lib/utils.ts에 cn() 함수 정의 확인\\n4. 각 디렉토리 import 테스트 성공",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "7c879ada-b35f-4ae5-b353-054fc233f303",
+      "name": "[Phase 1-Epic 1.3] 루트 레이아웃 구현 (app/layout.tsx)",
+      "description": "app/layout.tsx에서 글꼴, 메타데이터, 다크 모드 Provider 설정. HTML lang 속성, next-font 설정, 초기 메타데이터 정의",
+      "notes": "다크 모드 토글은 Phase 1.3.2에서 구현",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "bd4fd34e-9f8b-4f93-bc3f-d11ceb2432e6"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "루트 레이아웃"
+        },
+        {
+          "path": "app/globals.css",
+          "type": "REFERENCE",
+          "description": "전역 스타일"
+        }
+      ],
+      "implementationGuide": "1. app/layout.tsx 수정:\\n   - import fonts (next/font/google, 예: Inter)\\n   - export const metadata 정의\\n   - RootLayout에서 globals.css import\\n   - <html> lang=\"ko\" 설정\\n   - <body> className에 font 적용\\n   - children render\\n2. 다크 모드 Provider (향후 단계에서 추가 가능)\\n3. 메타데이터: title, description, icons 등",
+      "verificationCriteria": "1. app/layout.tsx에 메타데이터 정의\\n2. 글꼴 import 및 <body> className에 적용\\n3. children render 확인\\n4. npm run dev 실행 후 페이지 렌더링 확인",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "c1d97b6e-ac7f-4467-8869-66240a271d85",
+      "name": "[Phase 1-Epic 1.3] Header/Navigation 컴포넌트 구현",
+      "description": "components/layout/Header.tsx 작성. 로고, 메뉴(홈, 자료 목록), 다크 모드 토글 포함. Server Component 기본.",
+      "notes": "다크 모드 토글은 Client Component ('use client' 필요). Header는 Server Component로 유지",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "7c879ada-b35f-4ae5-b353-054fc233f303"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "components/layout/Header.tsx",
+          "type": "CREATE",
+          "description": "헤더 컴포넌트"
+        },
+        {
+          "path": "app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "Header import 및 렌더링"
+        }
+      ],
+      "implementationGuide": "1. components/layout/Header.tsx 생성\\n2. 로고 텍스트 또는 이미지 (lucide 아이콘 사용 고려)\\n3. 메뉴: Link 또는 Next.js Navigation 활용\\n   - 홈 (/)\\n   - 자료 목록 (/materials)\\n4. 다크 모드 토글 (Button + useTheme)\\n5. shadcn/ui Button, NavigationMenu 고려\\n6. responsive: md: grid (데스크톱), mobile hamburger (선택)\\n7. Tailwind CSS로 스타일링",
+      "verificationCriteria": "1. Header 컴포넌트 렌더링 확인\\n2. 메뉴 링크 3개 이상\\n3. 다크 모드 토글 버튼 존재\\n4. 반응형 확인 (모바일, 데스크톱)\\n5. npm run lint 에러 없음",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "761fd622-1c97-44a7-8a23-552f27fd9c8e",
+      "name": "[Phase 1-Epic 1.3] Footer 컴포넌트 구현",
+      "description": "components/layout/Footer.tsx 작성. 저작권 정보, 링크 표시.",
+      "notes": "기본 구현만, 링크는 향후 추가 가능",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "7c879ada-b35f-4ae5-b353-054fc233f303"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "components/layout/Footer.tsx",
+          "type": "CREATE",
+          "description": "푸터 컴포넌트"
+        },
+        {
+          "path": "app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "Footer import 및 렌더링"
+        }
+      ],
+      "implementationGuide": "1. components/layout/Footer.tsx 생성\\n2. 저작권 정보: © 2026 Notion CMS 스터디 자료실\\n3. 선택 사항: 링크 (프로젝트 URL, 소셜 미디어 등)\\n4. Tailwind로 스타일링 (배경색, 텍스트 중앙 정렬)\\n5. Server Component",
+      "verificationCriteria": "1. Footer 컴포넌트 렌더링 확인\\n2. 저작권 정보 표시\\n3. 페이지 하단에 배치\\n4. 반응형 확인",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "660747bd-dde9-4e50-a821-50e4875d4c9b",
+      "name": "[Phase 1-Epic 1.4] 기본 페이지 라우팅 - 홈 페이지",
+      "description": "app/page.tsx 작성. 로딩 스켈레톤 UI, 임시 헤더 텍스트. 실제 데이터는 Phase 3에서 추가.",
+      "notes": "Phase 3.4에서 실제 데이터 추가. 지금은 placeholder만",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "761fd622-1c97-44a7-8a23-552f27fd9c8e"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "홈 페이지"
+        },
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "REFERENCE",
+          "description": "shadcn Skeleton"
+        }
+      ],
+      "implementationGuide": "1. app/page.tsx 수정 (이미 존재)\\n2. 임시 헤더: 스터디 자료실 프로젝트 제목, 설명\\n3. 섹션 placeholder:\\n   - 최근 자료 섹션 (Skeleton 10개)\\n   - 카테고리 바로가기 (4~5개 버튼)\\n   - 인기 태그 (Skeleton)\\n4. shadcn/ui Skeleton 사용\\n5. Tailwind 그리드 레이아웃",
+      "verificationCriteria": "1. app/page.tsx 렌더링 확인\\n2. 섹션 3개 이상 (최근 자료, 카테고리, 태그)\\n3. Skeleton UI 표시\\n4. 반응형 확인\\n5. npm run lint 에러 없음",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "43aa15d9-fc60-405b-8730-434d307c5c30",
+      "name": "[Phase 1-Epic 1.4] 자료 목록 페이지 라우팅 설정",
+      "description": "app/materials/page.tsx 생성. 필터/검색 영역 placeholder, 카드 skeleton. 실제 데이터는 Phase 3에서.",
+      "notes": "loading.tsx는 app/materials/loading.tsx 파일로 동적 로딩 상태 처리",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "660747bd-dde9-4e50-a821-50e4875d4c9b"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "CREATE",
+          "description": "자료 목록 페이지"
+        },
+        {
+          "path": "app/materials/loading.tsx",
+          "type": "CREATE",
+          "description": "로딩 상태"
+        }
+      ],
+      "implementationGuide": "1. app/materials/page.tsx 생성\\n2. 필터 섹션 placeholder (category, tags, type 드롭다운/버튼)\\n3. 검색바 placeholder\\n4. 카드 목록 placeholder (Skeleton 12개, 그리드)\\n5. app/materials/loading.tsx 생성 (로딩 상태)\\n6. Skeleton 활용",
+      "verificationCriteria": "1. app/materials/page.tsx 렌더링 확인\\n2. 필터 섹션 3개 이상\\n3. 검색바 표시\\n4. 카드 skeleton 그리드 표시\\n5. loading.tsx 동작 확인 (선택)",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "54075a81-73a9-4b72-be33-fde28efdfa22",
+      "name": "[Phase 1-Epic 1.4] 자료 상세 페이지 라우팅 설정",
+      "description": "app/materials/[id]/page.tsx 생성. 제목/메타 정보 skeleton, 본문 영역 placeholder.",
+      "notes": "Dynamic route params 사용. 실제 페이지 렌더링은 Phase 3.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "43aa15d9-fc60-405b-8730-434d307c5c30"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "CREATE",
+          "description": "상세 페이지"
+        },
+        {
+          "path": "app/materials/[id]/loading.tsx",
+          "type": "CREATE",
+          "description": "로딩 상태"
+        },
+        {
+          "path": "app/materials/[id]/not-found.tsx",
+          "type": "CREATE",
+          "description": "404 페이지"
+        }
+      ],
+      "implementationGuide": "1. app/materials/[id]/page.tsx 생성\\n2. 헤더 섹션 (제목, 카테고리, 태그, 게시일) skeleton\\n3. 본문 영역 placeholder (여러 줄 skeleton)\\n4. 첨부파일 섹션 placeholder\\n5. 관련 자료 섹션 placeholder (카드 3개 skeleton)\\n6. app/materials/[id]/loading.tsx 생성\\n7. app/materials/[id]/not-found.tsx 생성 (404 에러)",
+      "verificationCriteria": "1. app/materials/[id]/page.tsx 렌더링 확인\\n2. 메타 정보 skeleton 표시\\n3. 본문 영역 placeholder 표시\\n4. not-found.tsx 동작 확인 (/materials/invalid-id)\\n5. npm run lint 에러 없음",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "281f6ec0-e069-4de7-a9d3-59f9130565ad",
+      "name": "[Phase 1 최종 확인] 프로젝트 빌드 및 개발 환경 검증",
+      "description": "Phase 1 완료 기준 최종 확인: npm run dev 정상 실행, 모든 페이지 라우팅 동작, 다크 모드 토글, TypeScript strict, ESLint 통과",
+      "notes": "Phase 1 완료 후 Phase 2로 진행 가능",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "54075a81-73a9-4b72-be33-fde28efdfa22"
+        }
+      ],
+      "createdAt": "2026-01-18T05:25:57.694Z",
+      "updatedAt": "2026-01-18T05:25:57.694Z",
+      "relatedFiles": [
+        {
+          "path": "app/layout.tsx",
+          "type": "REFERENCE",
+          "description": "레이아웃 확인"
+        },
+        {
+          "path": "app/page.tsx",
+          "type": "REFERENCE",
+          "description": "홈 페이지 확인"
+        },
+        {
+          "path": "app/materials/page.tsx",
+          "type": "REFERENCE",
+          "description": "목록 페이지 확인"
+        },
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "REFERENCE",
+          "description": "상세 페이지 확인"
+        }
+      ],
+      "implementationGuide": "1. npm run dev 실행 (localhost:3000)\\n2. 페이지 라우팅 테스트:\\n   - / (홈)\\n   - /materials (목록)\\n   - /materials/test-id (상세)\\n3. 네비게이션 메뉴 링크 동작 확인\\n4. 다크 모드 토글 테스트\\n5. npm run lint 실행 (에러 없음)\\n6. TypeScript 타입 검사 확인\\n7. 반응형 테스트 (모바일 375px, 태블릿 768px, 데스크톱 1440px)",
+      "verificationCriteria": "✅ Phase 1 Definition of Done:\\n1. npm run dev로 정상 실행\\n2. 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\\n3. 네비게이션 바에서 페이지 이동 가능\\n4. 다크 모드 토글 정상 동작\\n5. TypeScript strict 모드에서 에러 없음\\n6. ESLint 검사 통과\\n7. 반응형 확인 (모바일/태블릿/데스크톱)",
+      "analysisResult": "## Phase 1: 프로젝트 초기 설정 및 골격 구축\n\n### 완료 조건\n- ✅ npm run dev로 정상 실행\n- ✅ 홈, 자료 목록, 자료 상세 페이지 라우팅 동작\n- ✅ 네비게이션 바에서 페이지 이동 가능\n- ✅ 다크 모드 토글 정상 동작\n- ✅ TypeScript strict 모드에서 에러 없음\n- ✅ ESLint 검사 통과\n\n### 생성 디렉토리\n- components/layout/ (Header, Footer)\n- components/ui/ (shadcn)\n- components/common/\n- lib/\n- services/\n- types/\n\n### 페이지 라우팅 (Skeleton)\n- /: 홈 페이지 (최근 자료, 카테고리, 태그)\n- /materials: 자료 목록 (필터, 검색, 카드 skeleton)\n- /materials/[id]: 자료 상세 (메타, 본문, 관련 자료)\n\n### 다음 단계\nPhase 1 완료 후 Phase 2 (Notion API 연동)로 진행"
+    },
+    {
+      "id": "611c9738-19a1-4702-9feb-18539f907332",
+      "name": "[Phase 2-Epic 2.1] Notion Integration 생성 및 API 키 발급",
+      "description": "Notion 개발자 페이지에서 integration 생성, internal integration token 발급 및 .env.local에 저장",
+      "notes": "Notion 계정 필수. Internal integration으로 생성 (OAuth 불필요)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "281f6ec0-e069-4de7-a9d3-59f9130565ad"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": ".env.local",
+          "type": "CREATE",
+          "description": "환경 변수 파일"
+        },
+        {
+          "path": ".gitignore",
+          "type": "REFERENCE",
+          "description": ".env.local 포함 확인"
+        }
+      ],
+      "implementationGuide": "1. https://www.notion.so/my-integrations 접속\\n2. 새 integration 생성 (이름: StudyMaterial CMS)\\n3. Internal integration token 복사\\n4. .env.local 파일에 추가:\\n   NOTION_API_KEY=<token>\\n5. .env.local은 .gitignore에 포함 확인",
+      "verificationCriteria": "1. Notion integration 생성 완료\\n2. .env.local에 NOTION_API_KEY 저장\\n3. .env.local이 .gitignore에 포함\\n4. 환경 변수 로드 테스트 (다음 단계)",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "edeccc56-f0ec-4504-96cb-095fcddbec8f",
+      "name": "[Phase 2-Epic 2.1] Notion 데이터베이스 생성 및 권한 공유",
+      "description": "Notion에서 StudyMaterials 데이터베이스 생성, 필드 정의 (Title, Category, Tags, Published, Status, Type, Summary, Attachment)",
+      "notes": "Status 필드는 필수. 모든 자료는 Status=공개일 때만 웹에 노출",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "611c9738-19a1-4702-9feb-18539f907332"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": ".env.local",
+          "type": "TO_MODIFY",
+          "description": "NOTION_DATABASE_ID 추가"
+        }
+      ],
+      "implementationGuide": "1. Notion 워크스페이스에서 새 데이터베이스 생성 (이름: StudyMaterials)\\n2. 필드 추가 및 설정:\\n   - Title (title 타입)\\n   - Category (select: Frontend, Backend, CS, DevOps, Algorithm)\\n   - Tags (multi_select)\\n   - Published (date 타입)\\n   - Status (select: 비공개, 공개)\\n   - Type (select: 문서, 링크, 영상, PDF)\\n   - Summary (rich_text)\\n   - Attachment (files)\\n   - Content (body - 자동)\\n3. Integration에 데이터베이스 접근 권한 공여 (Share → Integration 선택)",
+      "verificationCriteria": "1. Notion StudyMaterials DB 생성\\n2. 모든 필드 생성 완료\\n3. Integration에 접근 권한 공여\\n4. 테스트 항목 1개 이상 추가 (Status=공개로 설정)",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "14e45c7b-b08e-4a50-bbf7-42b653279131",
+      "name": "[Phase 2-Epic 2.1] 환경 변수 최종 설정",
+      "description": ".env.local에 NOTION_API_KEY와 NOTION_DATABASE_ID 모두 저장 및 검증",
+      "notes": "DATABASE_ID는 URL format: https://www.notion.so/workspace/<DATABASE_ID>?v=...",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "edeccc56-f0ec-4504-96cb-095fcddbec8f"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": ".env.local",
+          "type": "TO_MODIFY",
+          "description": "환경 변수 전체 설정"
+        }
+      ],
+      "implementationGuide": "1. .env.local 파일 수정:\\n   NOTION_API_KEY=<integration_token>\\n   NOTION_DATABASE_ID=<database_id>\\n2. NOTION_DATABASE_ID는 Notion DB URL에서 추출 (32자 UUID)\\n3. 파일 저장 및 .gitignore 확인\\n4. 다음 단계에서 로드 테스트",
+      "verificationCriteria": "1. .env.local에 NOTION_API_KEY 확인\\n2. .env.local에 NOTION_DATABASE_ID 확인\\n3. 파일 형식 정상 (줄 바꿈 없음)\\n4. .gitignore 포함 확인",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "0964d30f-6062-4a8a-a20d-f5f0c5386cd3",
+      "name": "[Phase 2-Epic 2.2] Notion API 응답 타입 정의",
+      "description": "types/notion.ts에 NotionPage, NotionDatabase, NotionBlock 등 인터페이스 정의",
+      "notes": "완전한 타입이 아닌 필수 필드 중심으로 정의. 필요시 점진적 확장",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "14e45c7b-b08e-4a50-bbf7-42b653279131"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "types/notion.ts",
+          "type": "CREATE",
+          "description": "Notion API 응답 타입"
+        },
+        {
+          "path": "types/index.ts",
+          "type": "TO_MODIFY",
+          "description": "타입 export 추가"
+        }
+      ],
+      "implementationGuide": "1. types/notion.ts 생성\\n2. 주요 인터페이스 정의:\\n   - NotionPage (id, properties, created_time, last_edited_time)\\n   - NotionPropertyValue (formula, relation, rollup 등 property 타입)\\n   - NotionBlock (type, id, has_children, paragraph, heading_1, heading_2, bulleted_list_item, numbered_list_item, code, image, callout, quote, toggle, divider)\\n   - NotionRichText (type, text, annotations, href)\\n   - NotionDatabase (id, title, properties)\\n3. @notionhq/client 타입 참조 가능",
+      "verificationCriteria": "1. types/notion.ts 파일 생성\\n2. NotionPage, NotionBlock 인터페이스 정의\\n3. 주요 Block 타입 포함 (최소 10개)\\n4. types/index.ts에서 export\\n5. TypeScript 에러 없음",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "8f0857b6-eb64-4b5d-9ca9-210fcb464eea",
+      "name": "[Phase 2-Epic 2.2] StudyMaterial 도메인 타입 정의",
+      "description": "types/studyMaterial.ts에 StudyMaterial, Category, Tag, MaterialType 타입 정의",
+      "notes": "Public(공개) 데이터만 다루므로 Status는 검증용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "0964d30f-6062-4a8a-a20d-f5f0c5386cd3"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "types/studyMaterial.ts",
+          "type": "CREATE",
+          "description": "도메인 타입"
+        },
+        {
+          "path": "types/index.ts",
+          "type": "TO_MODIFY",
+          "description": "타입 export 추가"
+        }
+      ],
+      "implementationGuide": "1. types/studyMaterial.ts 생성\\n2. Enum 정의:\\n   - enum MaterialCategory { FRONTEND = 'Frontend', BACKEND = 'Backend', CS = 'CS', DEVOPS = 'DevOps', ALGORITHM = 'Algorithm' }\\n   - enum MaterialStatus { PRIVATE = '비공개', PUBLIC = '공개' }\\n   - enum MaterialType { DOCUMENT = '문서', LINK = '링크', VIDEO = '영상', PDF = 'PDF' }\\n3. 인터페이스 정의:\\n   - interface StudyMaterial { id, title, category, tags[], publishedDate, status, type, summary }\\n   - interface Tag { name, color? }",
+      "verificationCriteria": "1. types/studyMaterial.ts 파일 생성\\n2. MaterialCategory enum 정의 (5개)\\n3. MaterialStatus enum 정의 (2개)\\n4. MaterialType enum 정의 (4개)\\n5. StudyMaterial 인터페이스 정의\\n6. TypeScript 에러 없음",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "61d4f8a8-ee34-408a-9918-ceaee58cc983",
+      "name": "[Phase 2-Epic 2.2] DTO 타입 정의",
+      "description": "types/dto.ts에 StudyMaterialListDTO, StudyMaterialDetailDTO 정의",
+      "notes": "DTO는 API 응답과 도메인 타입 사이의 변환 중간 계층",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "8f0857b6-eb64-4b5d-9ca9-210fcb464eea"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "types/dto.ts",
+          "type": "CREATE",
+          "description": "DTO 타입"
+        },
+        {
+          "path": "types/index.ts",
+          "type": "TO_MODIFY",
+          "description": "타입 export 추가"
+        }
+      ],
+      "implementationGuide": "1. types/dto.ts 생성\\n2. StudyMaterialListDTO (목록 페이지용):\\n   - id, title, category, tags, publishedDate, summary, type\\n3. StudyMaterialDetailDTO (상세 페이지용, ListDTO 확장):\\n   - 추가 필드: content (NotionBlock[]), attachment? (url[])\\n4. Query 필터 타입 (선택):\\n   - interface FilterOptions { category?, tags[], type? }",
+      "verificationCriteria": "1. types/dto.ts 파일 생성\\n2. StudyMaterialListDTO 정의\\n3. StudyMaterialDetailDTO 정의 (extends ListDTO)\\n4. FilterOptions 타입 정의 (선택)\\n5. 모든 필드 명시적 타입 포함\\n6. TypeScript 에러 없음",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "92cf72ad-f357-4f4b-aa74-92fb141b4a7b",
+      "name": "[Phase 2-Epic 2.3] Notion Client 초기화",
+      "description": "lib/notion/client.ts에서 Notion Client 인스턴스 생성 및 export",
+      "notes": "@notionhq/client가 설치되어 있음 (package.json 확인)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "61d4f8a8-ee34-408a-9918-ceaee58cc983"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "lib/notion/client.ts",
+          "type": "CREATE",
+          "description": "Notion Client 초기화"
+        },
+        {
+          "path": ".env.local",
+          "type": "REFERENCE",
+          "description": "환경 변수 참조"
+        }
+      ],
+      "implementationGuide": "1. lib/notion/client.ts 생성\\n2. @notionhq/client import\\n3. Client 인스턴스 생성:\\n   export const notion = new Client({ auth: process.env.NOTION_API_KEY });\\n4. 환경 변수 로드 및 검증\\n5. 에러 처리 (API 키 미존재 시)",
+      "verificationCriteria": "1. lib/notion/client.ts 파일 생성\\n2. Notion Client 인스턴스 생성\\n3. 환경 변수 검증\\n4. TypeScript 에러 없음\\n5. export 정상",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "ffdd97da-8b6c-4d5f-834e-3b5ba7f6f2c5",
+      "name": "[Phase 2-Epic 2.3] Notion 데이터베이스 쿼리 함수 구현",
+      "description": "lib/notion/repository.ts에서 queryDatabase() 함수 작성. Status=공개 필터 적수 (필수)",
+      "notes": "공개 조건 필터는 필수. shrimp-rules.md 참조",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "92cf72ad-f357-4f4b-aa74-92fb141b4a7b"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "lib/notion/repository.ts",
+          "type": "CREATE",
+          "description": "Notion 쿼리 함수"
+        },
+        {
+          "path": "types/index.ts",
+          "type": "REFERENCE",
+          "description": "타입 참조"
+        }
+      ],
+      "implementationGuide": "1. lib/notion/repository.ts 생성\\n2. queryDatabase(filter?: FilterOptions) 함수:\\n   - notion.databases.query() 호출\\n   - Status=공개 필터 적용 (AND 조건)\\n   - Published 날짜 존재 조건\\n   - category, tags, type 필터 옵션\\n   - 최신순 정렬 (sort_by: created_time, direction: 'descending')\\n3. 에러 처리 (rate limit, 타임아웃)\\n4. 반환값: NotionPage[]",
+      "verificationCriteria": "1. lib/notion/repository.ts 파일 생성\\n2. queryDatabase() 함수 구현\\n3. Status=공개 AND Published 날짜 필터 적용\\n4. 에러 처리 포함\\n5. TypeScript 에러 없음\\n6. 함수 테스트 성공 (다음 단계)",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "3b95be3c-e7e9-4522-b1f5-1cc09bec2560",
+      "name": "[Phase 2-Epic 2.3] Notion 페이지 조회 함수 구현",
+      "description": "lib/notion/repository.ts에 getPageById(), getPageBlocks() 함수 추가",
+      "notes": "블록 재귀 처리는 필요시 제한 (최대 깊이 설정)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "ffdd97da-8b6c-4d5f-834e-3b5ba7f6f2c5"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "lib/notion/repository.ts",
+          "type": "TO_MODIFY",
+          "description": "함수 추가"
+        }
+      ],
+      "implementationGuide": "1. lib/notion/repository.ts 수정\\n2. getPageById(id: string) 함수:\\n   - notion.pages.retrieve(id) 호출\\n   - 공개 조건 검증 (Status=공개)\\n   - 반환값: NotionPage\\n3. getPageBlocks(id: string) 함수:\\n   - notion.blocks.children.list(block_id: id) 호출\\n   - 재귀적으로 중첩된 블록 처리\\n   - 반환값: NotionBlock[]\\n4. 에러 처리 (404, 권한 없음 등)",
+      "verificationCriteria": "1. getPageById() 함수 구현\\n2. getPageBlocks() 함수 구현\\n3. 공개 조건 검증\\n4. 에러 처리 포함\\n5. TypeScript 에러 없음",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "62a579f0-058e-4754-9b9d-277b55257b14",
+      "name": "[Phase 2-Epic 2.3] Notion 데이터 매퍼 함수 작성",
+      "description": "lib/notion/mapper.ts에서 Notion 응답 → DTO 변환 함수 작성",
+      "notes": "Notion API 응답 구조 복잡도 높음. 필드 매핑 시 null 체크 필수",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "3b95be3c-e7e9-4522-b1f5-1cc09bec2560"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "lib/notion/mapper.ts",
+          "type": "CREATE",
+          "description": "데이터 매퍼"
+        },
+        {
+          "path": "types/index.ts",
+          "type": "REFERENCE",
+          "description": "타입 참조"
+        }
+      ],
+      "implementationGuide": "1. lib/notion/mapper.ts 생성\\n2. mapToStudyMaterial(page: NotionPage): StudyMaterial\\n   - page.properties에서 각 필드 추출\\n   - 타입 변환 (rich_text → string, date → Date 등)\\n3. mapToStudyMaterialListDTO(material: StudyMaterial): StudyMaterialListDTO\\n4. mapToStudyMaterialDetailDTO(material: StudyMaterial, blocks: NotionBlock[]): StudyMaterialDetailDTO\\n5. 에러 처리 (필드 누락 시)",
+      "verificationCriteria": "1. lib/notion/mapper.ts 파일 생성\\n2. 3개 매퍼 함수 구현\\n3. 모든 필드 매핑 (Title, Category, Tags, Published, Status, Type, Summary)\\n4. null 체크 처리\\n5. TypeScript 에러 없음",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "b1648504-fda7-48b2-8d95-3deb1b5139d1",
+      "name": "[Phase 2-Epic 2.4] StudyMaterialService 클래스 작성",
+      "description": "services/studyMaterialService.ts에 StudyMaterialService 클래스 구현 (getAllMaterials, getMaterialById, searchMaterials)",
+      "notes": "Phase 4에서 searchMaterials 상세 구현. 지금은 기본만",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "62a579f0-058e-4754-9b9d-277b55257b14"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "services/studyMaterialService.ts",
+          "type": "CREATE",
+          "description": "서비스 클래스"
+        },
+        {
+          "path": "types/index.ts",
+          "type": "REFERENCE",
+          "description": "타입 참조"
+        }
+      ],
+      "implementationGuide": "1. services/studyMaterialService.ts 생성\\n2. StudyMaterialService 클래스:\\n   - getAllMaterials(filter?: FilterOptions): Promise<StudyMaterialListDTO[]>\\n     Repository.queryDatabase() → Mapper → DTO 배열\\n   - getMaterialById(id: string): Promise<StudyMaterialDetailDTO>\\n     Repository.getPageById() + getPageBlocks() → Mapper → DetailDTO\\n   - searchMaterials(query: string): Promise<StudyMaterialListDTO[]>\\n     제목, 요약, 태그에서 검색\\n3. 정적 메서드 또는 싱글톤 패턴\\n4. 에러 처리 및 캐싱 (향후)",
+      "verificationCriteria": "1. services/studyMaterialService.ts 파일 생성\\n2. StudyMaterialService 클래스 정의\\n3. 3개 메서드 구현\\n4. 모두 Promise 반환\\n5. TypeScript 에러 없음\\n6. 다음 단계에서 테스트",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "8f5cbacb-2a39-407e-8234-e94e56571671",
+      "name": "[Phase 2 최종 확인] Notion API 연동 및 데이터 레이어 검증",
+      "description": "Phase 2 완료 기준 확인: Notion 데이터 조회 성공, 타입 검증, 3개 이상 테스트 데이터",
+      "notes": "실제 페이지에서 데이터를 표시하는 것은 Phase 3에서 진행",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "b1648504-fda7-48b2-8d95-3deb1b5139d1"
+        }
+      ],
+      "createdAt": "2026-01-18T05:26:40.797Z",
+      "updatedAt": "2026-01-18T05:26:40.797Z",
+      "relatedFiles": [
+        {
+          "path": "services/studyMaterialService.ts",
+          "type": "REFERENCE",
+          "description": "서비스 호출"
+        },
+        {
+          "path": "lib/notion/",
+          "type": "REFERENCE",
+          "description": "모든 Notion 통합 파일"
+        }
+      ],
+      "implementationGuide": "1. Notion 테스트 데이터 3개 이상 추가 (Status=공개, Published 날짜 설정)\\n2. 코드 테스트:\\n   - npm run dev 실행\\n   - console.log를 이용해 getAllMaterials() 호출 및 결과 확인\\n   - getMaterialById('test-id') 호출 및 결과 확인\\n3. TypeScript strict 모드 에러 없음 확인\\n4. npm run lint 통과\\n5. 데이터 필터 확인 (Status=공개인 자료만 조회)",
+      "verificationCriteria": "✅ Phase 2 Definition of Done:\\n1. Notion API 연동 테스트 성공\\n2. StudyMaterial 타입 TypeScript strict 모드 에러 없음\\n3. Repository 함수가 Notion DB에서 데이터 반환\\n4. Service가 Repository 호출하여 DTO 반환\\n5. 3개 이상 테스트 데이터 등록 및 조회 확인\\n6. Status=공개 필터 적용 확인\\n7. npm run lint 통과",
+      "analysisResult": "## Phase 2: Notion API 연동 및 데이터 레이어 구축\n\n### 생성 디렉토리/파일\n- types/notion.ts (Notion API 응답 타입)\n- types/studyMaterial.ts (도메인 타입)\n- types/dto.ts (DTO 타입)\n- lib/notion/client.ts (Notion Client)\n- lib/notion/repository.ts (쿼리 함수)\n- lib/notion/mapper.ts (데이터 변환)\n- services/studyMaterialService.ts (서비스 클래스)\n- .env.local (환경 변수)\n\n### 핵심 규칙\n- 공개 조건 필터: Status=공개 AND Published 날짜 필수\n- 레이어드 아키텍처: Repository → Mapper → Service\n- 타입 안정성: 모든 함수에 명시적 반환 타입\n\n### 다음 단계\nPhase 2 완료 후 Phase 3 (핵심 기능 개발) 진행"
+    },
+    {
+      "id": "737b8cdf-57a8-4dca-99fc-7ed3a4ea5284",
+      "name": "[Phase 3-Epic 3.1] 목록 페이지 데이터 페칭 로직",
+      "description": "app/materials/page.tsx에서 StudyMaterialService.getAllMaterials() 호출 (Server Component). SearchParams 기반 필터링",
+      "notes": "SearchParams는 Promise 처리 필수 (Next.js 15+)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "8f5cbacb-2a39-407e-8234-e94e56571671"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "async 함수, 데이터 페칭"
+        }
+      ],
+      "implementationGuide": "1. app/materials/page.tsx 수정 (async Server Component)\\n2. props: { searchParams: Promise<Record<string, string>> }\\n3. searchParams 추출: category, tags[], type\\n4. StudyMaterialService.getAllMaterials(filter) 호출\\n5. 결과값 <MaterialList> 컴포넌트에 전달\\n6. Error boundary 고려",
+      "verificationCriteria": "1. app/materials/page.tsx가 async\\n2. searchParams 처리 정상\\n3. MaterialService 호출 성공\\n4. data 수신 확인\\n5. TypeScript 에러 없음",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "3d1e86ff-5e5b-4cce-8e1a-3411a6a26042",
+      "name": "[Phase 3-Epic 3.1] MaterialCard 컴포넌트 작성",
+      "description": "components/materials/MaterialCard.tsx 작성. 제목, 카테고리, 태그, 게시일, 요약 표시. 클릭 시 상세 페이지 이동",
+      "notes": "Link 사용으로 SSR 최적화. 하이퍼링크 우선",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "737b8cdf-57a8-4dca-99fc-7ed3a4ea5284"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/MaterialCard.tsx",
+          "type": "CREATE",
+          "description": "카드 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. components/materials/MaterialCard.tsx 생성\\n2. Props: StudyMaterialListDTO\\n3. shadcn/ui Card, Badge 사용\\n4. 구조:\\n   - 카드 헤더: 카테고리 배지\\n   - 제목 (h3)\\n   - 태그 배지 목록\\n   - 게시일 (작은 텍스트)\\n   - 요약 (2줄까지)\\n5. Link로 /materials/[id] 연결\\n6. 호버 효과 (Tailwind)",
+      "verificationCriteria": "1. 컴포넌트 렌더링 확인\\n2. 5개 필드 표시 (카테고리, 제목, 태그, 게시일, 요약)\\n3. Link 정상\\n4. 반응형 확인\\n5. npm run lint 통과",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "5377ec85-11ed-425c-a5f3-82416ab6ba2f",
+      "name": "[Phase 3-Epic 3.1] MaterialList 컴포넌트 작성",
+      "description": "components/materials/MaterialList.tsx 작성. MaterialCard 리스트 렌더링, grid 레이아웃 (3열)",
+      "notes": "Server Component. 반응형 필수",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "3d1e86ff-5e5b-4cce-8e1a-3411a6a26042"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/MaterialList.tsx",
+          "type": "CREATE",
+          "description": "리스트 컴포넌트"
+        },
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "MaterialList import"
+        }
+      ],
+      "implementationGuide": "1. components/materials/MaterialList.tsx 생성\\n2. Props: StudyMaterialListDTO[]\\n3. Grid 레이아웃 (Tailwind):\\n   - Desktop: grid-cols-3\\n   - Tablet: md:grid-cols-2\\n   - Mobile: grid-cols-1\\n   - gap: 4\\n4. map() 렌더링\\n5. key는 material.id 사용",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. MaterialCard 리스트 표시\\n3. 그리드 3열 레이아웃\\n4. 반응형 확인\\n5. map key 정상",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "bf294477-c263-49a1-b27c-e90e30dca121",
+      "name": "[Phase 3-Epic 3.1] EmptyState 및 로딩 상태 UI",
+      "description": "components/common/EmptyState.tsx 작성. 자료 없음, 검색 결과 없음 메시지. app/materials/loading.tsx 스켈레톤",
+      "notes": "EmptyState는 재사용 컴포넌트 (검색, 필터, 추천에서 재사용)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "5377ec85-11ed-425c-a5f3-82416ab6ba2f"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "components/common/EmptyState.tsx",
+          "type": "CREATE",
+          "description": "빈 상태 컴포넌트"
+        },
+        {
+          "path": "app/materials/loading.tsx",
+          "type": "TO_MODIFY",
+          "description": "로딩 상태"
+        }
+      ],
+      "implementationGuide": "1. components/common/EmptyState.tsx 생성\\n   - Props: title, description, icon?\\n   - 중앙 정렬, 아이콘 + 텍스트\\n2. app/materials/loading.tsx 수정\\n   - Skeleton UI 12개 카드\\n   - grid-cols-3 레이아웃\\n3. shadcn/ui Skeleton 사용",
+      "verificationCriteria": "1. EmptyState 컴포넌트 렌더링\\n2. loading.tsx 스켈레톤 표시\\n3. 그리드 레이아웃 일관성\\n4. 텍스트 명확함 (한국어)",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "48b4898b-e12e-48d9-a743-bbaf1f0d7746",
+      "name": "[Phase 3-Epic 3.2] 상세 페이지 데이터 페칭",
+      "description": "app/materials/[id]/page.tsx에서 StudyMaterialService.getMaterialById(id) 호출",
+      "notes": "Dynamic route. notFound() 사용 시 [id]/not-found.tsx 자동 호출",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "bf294477-c263-49a1-b27c-e90e30dca121"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "async 함수, 데이터 페칭"
+        }
+      ],
+      "implementationGuide": "1. app/materials/[id]/page.tsx 수정 (async)\\n2. params: { id: string } 추출\\n3. getMaterialById(id) 호출\\n4. 없으면 notFound() 호출\\n5. 데이터 <MaterialHeader>, <BlockRenderer> 등에 전달\\n6. generateStaticParams() 구현 (ISR)",
+      "verificationCriteria": "1. async 함수 구현\\n2. notFound() 호출 테스트\\n3. getMaterialById 성공\\n4. 타입 검증",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "3851425f-dc17-4bf6-9e8d-2b91fb80682a",
+      "name": "[Phase 3-Epic 3.2] MaterialHeader 컴포넌트",
+      "description": "components/materials/MaterialHeader.tsx. 제목, 카테고리, 태그, 게시일, Type 표시",
+      "notes": "상세 페이지 상단 고정. 반응형 필수",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "48b4898b-e12e-48d9-a743-bbaf1f0d7746"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/MaterialHeader.tsx",
+          "type": "CREATE",
+          "description": "헤더 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. components/materials/MaterialHeader.tsx 생성\\n2. Props: StudyMaterialDetailDTO\\n3. 구조:\\n   - 제목 (h1)\\n   - 메타 정보 (Flexbox): 카테고리 배지, Type, 게시일\\n   - 태그 배지 목록\\n   - Separator 추가 (shadcn)\\n4. Tailwind 스타일링",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. 5개 정보 표시\\n3. Separator 표시\\n4. 반응형 확인",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "c86f5792-9b26-4a5c-823f-4618e255a54f",
+      "name": "[Phase 3-Epic 3.2] Notion Block 렌더러 - 기본 (paragraph, heading, list, code)",
+      "description": "components/notion/BlockRenderer.tsx. 기본 블록 타입 지원: paragraph, heading_1/2/3, bulleted_list_item, numbered_list_item, code",
+      "notes": "5시간 예상. 최우선 블록만 구현. 미지원 블록: placeholder",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "3851425f-dc17-4bf6-9e8d-2b91fb80682a"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "components/notion/BlockRenderer.tsx",
+          "type": "CREATE",
+          "description": "블록 렌더러"
+        }
+      ],
+      "implementationGuide": "1. components/notion/BlockRenderer.tsx 생성\\n2. Props: NotionBlock[]\\n3. 블록 타입별 렌더링:\\n   - paragraph: <p> + rich_text 처리\\n   - heading_1/2/3: <h2>/<h3>/<h4>\\n   - code: <pre><code> + language 표시\\n   - lists: <ul>/<ol> + 항목 처리\\n4. Rich text 처리 (bold, italic, code span)\\n5. 중첩 블록 처리 (재귀)",
+      "verificationCriteria": "1. 5개 블록 타입 렌더링\\n2. 리치 텍스트 포매팅\\n3. 중첩 처리\\n4. 미지원 블록 placeholder\\n5. npm run lint 통과",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "6860943a-7676-4e70-a87e-57a3e3636522",
+      "name": "[Phase 3-Epic 3.2] Notion Block 렌더러 - 고급 (image, callout, quote, toggle)",
+      "description": "BlockRenderer 확장. 이미지, 콜아웃, 인용문, 토글 블록 지원",
+      "notes": "4시간 예상. Image 최적화 필수. Accordion 사용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "c86f5792-9b26-4a5c-823f-4618e255a54f"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "components/notion/BlockRenderer.tsx",
+          "type": "TO_MODIFY",
+          "description": "블록 타입 확장"
+        }
+      ],
+      "implementationGuide": "1. components/notion/BlockRenderer.tsx 수정\\n2. 추가 타입:\\n   - image: Next.js Image + lazy loading\\n   - callout: shadcn Alert + 아이콘\\n   - quote: styled blockquote\\n   - toggle: shadcn Accordion (펼치기/접기)\\n3. 에러 처리 (이미지 404 등)",
+      "verificationCriteria": "1. 4개 추가 블록 타입 렌더링\\n2. Image lazy loading\\n3. Accordion 동작\\n4. 에러 처리",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "ae248b48-28cf-460d-a76c-0bb8a0e56376",
+      "name": "[Phase 3-Epic 3.2] 첨부파일 다운로드 UI",
+      "description": "상세 페이지에서 attachment 필드가 있을 경우 다운로드 버튼 표시",
+      "notes": "1.5시간 예상. 간단한 구현",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "6860943a-7676-4e70-a87e-57a3e3636522"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "Attachment 섹션 추가"
+        }
+      ],
+      "implementationGuide": "1. 상세 페이지에 Attachment 섹션 추가\\n2. 파일 목록 렌더링\\n3. shadcn Button (다운로드 아이콘)\\n4. 링크 처리 (Notion 파일 URL)",
+      "verificationCriteria": "1. Attachment 섹션 렌더링\\n2. 버튼 표시\\n3. 링크 정상",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "7a9e306a-68de-401f-8d22-1c308ba236cd",
+      "name": "[Phase 3-Epic 3.2] 404 에러 처리",
+      "description": "app/materials/[id]/not-found.tsx 작성. 자료 미존재 시 표시",
+      "notes": "1시간 예상. 기본 구현",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "ae248b48-28cf-460d-a76c-0bb8a0e56376"
+        }
+      ],
+      "createdAt": "2026-01-18T05:27:10.845Z",
+      "updatedAt": "2026-01-18T05:27:10.845Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/[id]/not-found.tsx",
+          "type": "CREATE",
+          "description": "404 페이지"
+        }
+      ],
+      "implementationGuide": "1. app/materials/[id]/not-found.tsx 생성\\n2. 메시지: 자료를 찾을 수 없습니다\\n3. 홈/목록 링크 제공\\n4. 간단한 스타일링",
+      "verificationCriteria": "1. not-found.tsx 렌더링\\n2. /materials/invalid-id 테스트\\n3. 링크 표시",
+      "analysisResult": "## Phase 3-Epic 3.1 & 3.2 진행\n\n### Epic 3.1 (자료 목록): 페칭, 카드, 리스트, 빈상태\n### Epic 3.2 (상세페이지): 페칭, 헤더, 블록 렌더러 (기본+고급), 첨부, 404\n\n### 생성 컴포넌트\n- components/materials/MaterialCard.tsx\n- components/materials/MaterialList.tsx\n- components/materials/MaterialHeader.tsx\n- components/notion/BlockRenderer.tsx\n- components/common/EmptyState.tsx\n\n### 다음 작업\nEpic 3.3 (필터) → Epic 3.4 (홈)"
+    },
+    {
+      "id": "66edd0ce-564a-42cd-8113-b165b3c1f2dc",
+      "name": "[Phase 3-Epic 3.3] 카테고리 필터 UI 작성",
+      "description": "components/materials/CategoryFilter.tsx 작성. Select 또는 Button Group으로 카테고리 필터. (Frontend, Backend, CS, DevOps, Algorithm)",
+      "notes": "2.5시간 예상. Select 권장 (UX 좋음)",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "7a9e306a-68de-401f-8d22-1c308ba236cd"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/CategoryFilter.tsx",
+          "type": "CREATE",
+          "description": "카테고리 필터 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. components/materials/CategoryFilter.tsx 생성\\n2. Props: selectedCategory?, onCategoryChange\\n3. Select 컴포넌트 또는 ToggleGroup 사용\\n4. 옵션: 전체, Frontend, Backend, CS, DevOps, Algorithm\\n5. URL 쿼리 파라미터와 동기\\n6. shadcn/ui Select 또는 ToggleGroup 활용",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. 5개 카테고리 옵션\\n3. 선택 시 URL 쿼리 업데이트\\n4. 반응형 확인",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "baff606a-1ff9-47a8-aaea-e33c72339d91",
+      "name": "[Phase 3-Epic 3.3] 태그 필터 UI 작성",
+      "description": "components/materials/TagFilter.tsx 작성. Multi-select 태그 필터. 팝오버 또는 dropdown.",
+      "notes": "3시간 예상. Multi-select 복잡도 높음",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "66edd0ce-564a-42cd-8113-b165b3c1f2dc"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/TagFilter.tsx",
+          "type": "CREATE",
+          "description": "태그 필터 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. components/materials/TagFilter.tsx 생성\\n2. Props: availableTags[], selectedTags[], onTagChange\\n3. shadcn/ui Popover + Checkbox 조합\\n4. 선택된 태그 배지로 표시\\n5. '전체 초기화' 버튼\\n6. URL 쿼리: tags=tag1&tags=tag2 형식",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. 다중 선택 동작\\n3. 선택된 태그 배지 표시\\n4. URL 쿼리 동기",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "86cebaf2-9479-4899-bdf9-35fba3b3f6df",
+      "name": "[Phase 3-Epic 3.3] Type 필터 UI 작성",
+      "description": "components/materials/TypeFilter.tsx 작성. 자료 유형 필터 (문서/링크/영상/PDF). ToggleGroup.",
+      "notes": "2시간 예상. ToggleGroup 간단함",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "baff606a-1ff9-47a8-aaea-e33c72339d91"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/TypeFilter.tsx",
+          "type": "CREATE",
+          "description": "타입 필터 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. components/materials/TypeFilter.tsx 생성\\n2. Props: selectedType?, onTypeChange\\n3. shadcn/ui ToggleGroup 사용\\n4. 옵션: 전체, 문서, 링크, 영상, PDF\\n5. 아이콘 추가 (lucide-react)\\n6. URL 쿼리: type=문서",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. 4개 타입 옵션\\n3. ToggleGroup 동작\\n4. URL 쿼리 동기",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "bc0f7487-e54b-4c26-8af0-ff821398df41",
+      "name": "[Phase 3-Epic 3.3] URL 쿼리 파라미터 기반 필터 로직",
+      "description": "app/materials/page.tsx에서 searchParams 기반 필터링 구현. category, tags[], type 파라미터 처리.",
+      "notes": "3시간 예상. Server Component에서 처리",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "86cebaf2-9479-4899-bdf9-35fba3b3f6df"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "필터 로직 구현"
+        },
+        {
+          "path": "components/materials/CategoryFilter.tsx",
+          "type": "REFERENCE",
+          "description": "필터 컴포넌트"
+        },
+        {
+          "path": "components/materials/TagFilter.tsx",
+          "type": "REFERENCE",
+          "description": "필터 컴포넌트"
+        },
+        {
+          "path": "components/materials/TypeFilter.tsx",
+          "type": "REFERENCE",
+          "description": "필터 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. app/materials/page.tsx 수정\\n2. searchParams에서 category, tags, type 추출\\n3. FilterOptions 빌드: { category?, tags[], type? }\\n4. Service.getAllMaterials(filter) 호출\\n5. 필터 UI에 현재값 전달\\n6. useTransition 고려 (선택적)",
+      "verificationCriteria": "1. searchParams 추출 정상\\n2. 필터 로직 동작\\n3. 필터 UI 현재값 표시\\n4. URL 변경 시 필터 반영",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "feac42f2-8b62-4220-aff3-6e4421e2aa74",
+      "name": "[Phase 3-Epic 3.3] 필터 초기화 버튼",
+      "description": "app/materials 페이지에 '필터 초기화' 버튼 추가. 모든 필터 제거하고 /materials로 이동.",
+      "notes": "1시간 예상. 간단한 구현",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "bc0f7487-e54b-4c26-8af0-ff821398df41"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "버튼 추가"
+        }
+      ],
+      "implementationGuide": "1. 필터 섹션에 '필터 초기화' 버튼 추가\\n2. Link href=\"/materials\" 또는 router.push()\\n3. shadcn/ui Button + 아이콘\\n4. 필터가 활성화되었을 때만 표시 (조건부)",
+      "verificationCriteria": "1. 버튼 렌더링\\n2. 클릭 시 /materials로 이동\\n3. 필터 제거 확인",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "2e8a3b4a-c208-4bd1-8704-c77c6d6f3adb",
+      "name": "[Phase 3-Epic 3.4] 최근 자료 섹션 구현",
+      "description": "app/page.tsx에서 최신 N개 자료 표시. MaterialCard 재사용. (Phase 3.4.1)",
+      "notes": "2시간 예상. MaterialCard 재사용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "feac42f2-8b62-4220-aff3-6e4421e2aa74"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "최근 자료 섹션"
+        },
+        {
+          "path": "components/materials/MaterialCard.tsx",
+          "type": "REFERENCE",
+          "description": "재사용"
+        }
+      ],
+      "implementationGuide": "1. app/page.tsx 수정 (async)\\n2. Service.getAllMaterials({ limit: 6 }) 호출\\n3. MaterialCard 6개 렌더링 (grid-cols-3)\\n4. '더 보기' 링크 → /materials\\n5. Skeleton UI 로딩 상태 (선택)",
+      "verificationCriteria": "1. 섹션 렌더링\\n2. MaterialCard 6개 표시\\n3. '더 보기' 링크 동작\\n4. 반응형 확인",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "35a972d1-9760-4a74-b585-de1fdb0f55c7",
+      "name": "[Phase 3-Epic 3.4] 카테고리 바로가기 버튼",
+      "description": "app/page.tsx에서 주요 카테고리별 버튼 표시. 클릭 시 /materials?category=XXX로 이동. (Phase 3.4.2)",
+      "notes": "2.5시간 예상. 정적 데이터",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "2e8a3b4a-c208-4bd1-8704-c77c6d6f3adb"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "카테고리 섹션 추가"
+        }
+      ],
+      "implementationGuide": "1. app/page.tsx에 카테고리 섹션 추가\\n2. 버튼 5개: Frontend, Backend, CS, DevOps, Algorithm\\n3. shadcn/ui Button + Link\\n4. href=\"/materials?category=Frontend\" 등\\n5. Grid 또는 Flex 레이아웃",
+      "verificationCriteria": "1. 섹션 렌더링\\n2. 5개 버튼 표시\\n3. 각 버튼 클릭 시 올바른 URL로 이동\\n4. 반응형 확인",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "254502d5-4340-4be6-a920-42496faa29db",
+      "name": "[Phase 3-Epic 3.4] 인기 태그 Top N 표시",
+      "description": "app/page.tsx에서 가장 많이 사용된 태그 목록 표시. 클릭 시 /materials?tags=태그명으로 이동. (Phase 3.4.3)",
+      "notes": "2시간 예상. 데이터 처리 필요",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "35a972d1-9760-4a74-b585-de1fdb0f55c7"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "인기 태그 섹션"
+        },
+        {
+          "path": "services/studyMaterialService.ts",
+          "type": "TO_MODIFY",
+          "description": "getPopularTags() 추가"
+        }
+      ],
+      "implementationGuide": "1. Service에 getPopularTags() 메서드 추가 (또는 getAllMaterials 데이터 활용)\\n2. 모든 materials에서 태그 수집, 정렬\\n3. 상위 10개 표시\\n4. app/page.tsx에 섹션 추가\\n5. 각 태그를 배지로 표시 (클릭 가능)",
+      "verificationCriteria": "1. 섹션 렌더링\\n2. 태그 10개 표시\\n3. 배지 클릭 시 필터 적용\\n4. 정렬 순서 확인 (많은 순)",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "592f488c-2001-4d6b-aabc-7e13a203535a",
+      "name": "[Phase 3-Epic 3.4] Hero 섹션 작성",
+      "description": "app/page.tsx 상단에 Hero 섹션. 프로젝트 소개, CTA 버튼. (Phase 3.4.4)",
+      "notes": "2시간 예상. 스타일링 중심",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "254502d5-4340-4be6-a920-42496faa29db"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "Hero 섹션"
+        }
+      ],
+      "implementationGuide": "1. 상단에 Hero 섹션 추가\\n2. 제목: \"스터디 자료실\"\\n3. 설명: 프로젝트 소개 텍스트\\n4. CTA 버튼: \"자료 둘러보기\" → /materials\\n5. 배경 이미지 또는 그래디언트\\n6. 중앙 정렬, 큰 텍스트",
+      "verificationCriteria": "1. 섹션 렌더링\\n2. 제목, 설명, 버튼 표시\\n3. CTA 버튼 동작\\n4. 반응형 확인\\n5. 시각적 임팩트 (배경 등)",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "2187bd2c-a6ac-4ec5-93d4-469dfd10c54b",
+      "name": "[Phase 3 최종 확인] 핵심 기능 개발 검증",
+      "description": "Phase 3 완료 기준 최종 확인: 자료 목록/상세 동작, 필터링 정상, 반응형 확인",
+      "notes": "Phase 3 완료의 마지막 단계",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "592f488c-2001-4d6b-aabc-7e13a203535a"
+        }
+      ],
+      "createdAt": "2026-01-18T05:30:30.619Z",
+      "updatedAt": "2026-01-18T05:30:30.619Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "REFERENCE",
+          "description": "홈 페이지"
+        },
+        {
+          "path": "app/materials/page.tsx",
+          "type": "REFERENCE",
+          "description": "목록 페이지"
+        },
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "REFERENCE",
+          "description": "상세 페이지"
+        }
+      ],
+      "implementationGuide": "1. npm run dev 실행\\n2. 페이지 테스트:\\n   - / (홈): 최근 자료, 카테고리, 태그, Hero 확인\\n   - /materials: 목록, 필터 모두 동작 확인\\n   - /materials?category=Frontend: 카테고리 필터 적용\\n   - /materials?tags=React: 태그 필터 적용\\n   - /materials?category=Backend&tags=Node.js: 복합 필터\\n   - /materials/[id]: 상세 페이지, 블록 렌더링 확인\\n3. npm run lint 통과\\n4. 반응형 테스트 (모바일/태블릿/데스크톱)",
+      "verificationCriteria": "✅ Phase 3 Definition of Done:\\n1. 자료 목록 페이지에서 Notion 데이터 정상 표시\\n2. 자료 상세 페이지에서 Notion 본문 렌더링 정상 동작\\n3. 카테고리/태그/Type 필터링 모두 동작\\n4. URL 쿼리 파라미터 변경 시 필터 상태 유지\\n5. 홈 페이지 최근 자료, 카테고리, 태그 정상 표시\\n6. 모바일/태블릿 반응형 확인\\n7. 로딩 상태 및 에러 상태 UI 정상",
+      "analysisResult": "## Phase 3 (Epic 3.3, 3.4) 추가 완료\n\n### Epic 3.3: 필터링 (5개 작업)\n- CategoryFilter, TagFilter, TypeFilter 컴포넌트\n- URL 쿼리 파라미터 필터링 로직\n- 필터 초기화 버튼\n\n### Epic 3.4: 홈 페이지 (4개 작업)\n- 최근 자료 섹션\n- 카테고리 바로가기\n- 인기 태그 Top N\n- Hero 섹션\n\n### Phase 3 최종: 검증 (1개)\n\n다음: Phase 4, Phase 5 추가"
+    },
+    {
+      "id": "06183fca-ca10-4188-a1b8-165e1fb12c37",
+      "name": "[Phase 4-Epic 4.1] 검색바 UI 작성",
+      "description": "components/materials/SearchBar.tsx 작성. 입력 즉시 URL 쿼리 파라미터 업데이트. Debounce 적용.",
+      "notes": "2시간 예상. Client Component 필수. Debounce 권장",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "2187bd2c-a6ac-4ec5-93d4-469dfd10c54b"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/SearchBar.tsx",
+          "type": "CREATE",
+          "description": "검색바"
+        }
+      ],
+      "implementationGuide": "1. components/materials/SearchBar.tsx 생성\\n2. 'use client' (인터랙티브)\\n3. shadcn/ui Input + Button\\n4. useRouter 사용\\n5. debounce (500ms) 적용\\n6. onChange → URL update (searchParams.search=query)",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. 입력 시 URL 업데이트\\n3. debounce 동작\\n4. 엔터키 동작",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "0a7ba4c5-5b28-4458-99da-8981b868a04d",
+      "name": "[Phase 4-Epic 4.1] 검색 로직 구현",
+      "description": "services/studyMaterialService.ts에 searchMaterials(query) 메서드 추가. 제목/요약/태그 기준 검색.",
+      "notes": "2.5시간 예상. 기본 구현만",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "06183fca-ca10-4188-a1b8-165e1fb12c37"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "services/studyMaterialService.ts",
+          "type": "TO_MODIFY",
+          "description": "검색 메서드 추가"
+        }
+      ],
+      "implementationGuide": "1. services/studyMaterialService.ts 수정\\n2. searchMaterials(query: string): Promise<StudyMaterialListDTO[]>\\n3. 검색 대상: title, summary, tags\\n4. 부분 일치 (포함 검색)\\n5. 대소문자 무시\\n6. 성능: 클라이언트 또는 서버 (권장: 서버)",
+      "verificationCriteria": "1. 메서드 구현\\n2. 제목 검색 동작\\n3. 요약 검색 동작\\n4. 태그 검색 동작\\n5. 대소문자 무시",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "e0abac1a-c85c-4006-bb1e-36beaa44499b",
+      "name": "[Phase 4-Epic 4.1] 검색 결과 하이라이팅",
+      "description": "검색어와 일치하는 부분을 강조 표시. (선택 사항)",
+      "notes": "2시간 예상. 선택 사항",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "0a7ba4c5-5b28-4458-99da-8981b868a04d"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/MaterialCard.tsx",
+          "type": "TO_MODIFY",
+          "description": "하이라이팅 추가"
+        }
+      ],
+      "implementationGuide": "1. BlockRenderer 또는 MaterialCard에서 검색어 하이라이팅\\n2. regex로 검색어 감지\\n3. <mark> 태그로 감싸기 (또는 <span className=\"bg-yellow-200\">)\\n4. 대소문자 무시",
+      "verificationCriteria": "1. 검색어 감지\\n2. 제목 하이라이팅\\n3. 요약 하이라이팅\\n4. 시각적 확인",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "4fc8cb9a-8877-43c4-95d5-df5355532a18",
+      "name": "[Phase 4-Epic 4.1] 검색 결과 없을 때 Empty State",
+      "description": "검색 결과가 없을 때 메시지 표시. app/materials/page.tsx에서 처리.",
+      "notes": "1시간 예상. EmptyState 재사용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "e0abac1a-c85c-4006-bb1e-36beaa44499b"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "Empty State 추가"
+        }
+      ],
+      "implementationGuide": "1. app/materials/page.tsx에서 materials.length === 0 체크\\n2. EmptyState 컴포넌트 사용\\n3. 메시지: \"검색 결과가 없습니다\"\\n4. 검색바 다시 표시",
+      "verificationCriteria": "1. Empty State 렌더링\\n2. 메시지 명확함\\n3. 링크 제공 (홈으로 돌아가기 등)",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "8cbb4522-2a97-4d71-b821-13a158a89a9a",
+      "name": "[Phase 4-Epic 4.2] 추천 로직 구현",
+      "description": "services/studyMaterialService.ts에 getRelatedMaterials(materialId) 메서드 추가. 같은 태그 기준.",
+      "notes": "2.5시간 예상. 태그 기반 간단한 로직",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "4fc8cb9a-8877-43c4-95d5-df5355532a18"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "services/studyMaterialService.ts",
+          "type": "TO_MODIFY",
+          "description": "추천 메서드 추가"
+        }
+      ],
+      "implementationGuide": "1. services/studyMaterialService.ts 수정\\n2. getRelatedMaterials(materialId: string): Promise<StudyMaterialListDTO[]>\\n3. 현재 자료의 tags 추출\\n4. 같은 태그를 가진 다른 자료 찾기\\n5. 현재 자료 제외\\n6. 상위 6개 반환",
+      "verificationCriteria": "1. 메서드 구현\\n2. 같은 태그 필터링\\n3. 현재 자료 제외\\n4. 최대 6개 반환",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "bb5e6e19-1e26-4729-b749-d300022f5c36",
+      "name": "[Phase 4-Epic 4.2] RelatedMaterials 컴포넌트 작성",
+      "description": "components/materials/RelatedMaterials.tsx 작성. MaterialCard 재사용, 가로 스크롤 또는 grid.",
+      "notes": "2.5시간 예상. MaterialCard 재사용",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "8cbb4522-2a97-4d71-b821-13a158a89a9a"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/RelatedMaterials.tsx",
+          "type": "CREATE",
+          "description": "추천 컴포넌트"
+        }
+      ],
+      "implementationGuide": "1. components/materials/RelatedMaterials.tsx 생성\\n2. Props: materials: StudyMaterialListDTO[]\\n3. grid-cols-3 또는 flex (가로 스크롤)\\n4. MaterialCard 6개 렌더링\\n5. 제목: \"관련 자료\"",
+      "verificationCriteria": "1. 컴포넌트 렌더링\\n2. MaterialCard 6개 표시\\n3. 레이아웃 (grid 또는 scroll)\\n4. 반응형",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "b92ea0df-dbea-40f6-98fa-f7204d9168b2",
+      "name": "[Phase 4-Epic 4.2] 상세 페이지에 추천 섹션 추가",
+      "description": "app/materials/[id]/page.tsx에 RelatedMaterials 컴포넌트 추가. 본문 아래에 배치.",
+      "notes": "1시간 예상. 간단한 통합",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "bb5e6e19-1e26-4729-b749-d300022f5c36"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "추천 섹션 추가"
+        }
+      ],
+      "implementationGuide": "1. app/materials/[id]/page.tsx 수정\\n2. getMaterialById 호출 후 getRelatedMaterials 호출\\n3. RelatedMaterials 컴포넌트 렌더링\\n4. 본문 아래에 배치 (Separator로 구분)",
+      "verificationCriteria": "1. 섹션 렌더링\\n2. 올바른 자료 표시\\n3. 배치 위치 (본문 아래)",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "69c5a381-b382-45e2-9912-d50b9f81bb77",
+      "name": "[Phase 4-Epic 4.3] 모바일 레이아웃 점검 및 수정",
+      "description": "320px ~ 768px 해상도에서 UI 확인, 필요시 Tailwind 클래스 조정. (모바일/태블릿 구분)",
+      "notes": "3시간 예상. 레이아웃 최적화",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "b92ea0df-dbea-40f6-98fa-f7204d9168b2"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "반응형 클래스"
+        },
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "반응형 클래스"
+        },
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "반응형 클래스"
+        }
+      ],
+      "implementationGuide": "1. 모바일 기기에서 테스트 (또는 DevTools)\\n2. 페이지별 확인:\\n   - / (홈): Hero, 섹션 스택\\n   - /materials: 목록 1열, 필터 스택\\n   - /materials/[id]: 메타 정렬, 블록 너비\\n3. Tailwind 반응형 클래스 조정 (sm:, md: 등)\\n4. 터치 친화적 버튼 (최소 44px)",
+      "verificationCriteria": "1. 320px 너비 확인\\n2. 텍스트 읽기 가능\\n3. 이미지 스케일 적절\\n4. 터치 버튼 크기",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "50504f65-5a72-4f24-bee8-cc82105e920b",
+      "name": "[Phase 4-Epic 4.3] 태블릿 레이아웃 점검 및 수정",
+      "description": "768px ~ 1024px 해상도에서 UI 확인. 중간 크기 레이아웃.",
+      "notes": "2시간 예상. 중간 크기 최적화",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "69c5a381-b382-45e2-9912-d50b9f81bb77"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "md 클래스 조정"
+        }
+      ],
+      "implementationGuide": "1. 태블릿 해상도 테스트 (DevTools)\\n2. 페이지별 확인:\\n   - /materials: 목록 2열 (md:grid-cols-2)\\n   - 필터 레이아웃\\n3. 여유 공간 확인\\n4. 텍스트 줄 길이 (최대 80자)",
+      "verificationCriteria": "1. 768px 너비 확인\\n2. 2열 그리드\\n3. 텍스트 길이 적절\\n4. 여유 공간 확인",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "460ec81d-548e-491f-8e89-4329f745bbb0",
+      "name": "[Phase 4-Epic 4.3] 데스크톱 레이아웃 점검 및 수정",
+      "description": "1024px 이상 해상도에서 UI 확인. 최대 너비 설정.",
+      "notes": "1.5시간 예상. 최종 점검",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "50504f65-5a72-4f24-bee8-cc82105e920b"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "lg 클래스 확인"
+        }
+      ],
+      "implementationGuide": "1. 큰 화면에서 테스트 (데스크톱 1440px)\\n2. 페이지별 확인:\\n   - /materials: 목록 3열\\n   - 최대 너비 제한 (container 또는 max-w)\\n3. 여유 공간 확인\\n4. 텍스트 읽기 가능",
+      "verificationCriteria": "1. 1440px 너비 확인\\n2. 3열 그리드\\n3. 최대 너비 설정\\n4. 균형잡힌 레이아웃",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "6b5e54b4-47cf-4d08-b396-f299c855cdff",
+      "name": "[Phase 4-Epic 4.4] 키보드 네비게이션 테스트 및 수정",
+      "description": "Tab 키로 모든 인터랙티브 요소 접근 가능 확인, focus 스타일 추가.",
+      "notes": "2.5시간 예상. 접근성 중요",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "460ec81d-548e-491f-8e89-4329f745bbb0"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "components/layout/Header.tsx",
+          "type": "TO_MODIFY",
+          "description": "focus 스타일"
+        },
+        {
+          "path": "components/materials/CategoryFilter.tsx",
+          "type": "TO_MODIFY",
+          "description": "focus 스타일"
+        }
+      ],
+      "implementationGuide": "1. Tab 키로 모든 버튼, 링크, 입력 요소 접근 확인\\n2. 순서가 논리적인지 확인 (left-to-right)\\n3. Focus 스타일 추가 (Tailwind focus:ring 등)\\n4. Skip to main content 링크 추가 (선택)\\n5. 모달/팝오버 포커스 트래핑",
+      "verificationCriteria": "1. Tab 순서 논리적\\n2. Focus 스타일 명확\\n3. 모든 요소 접근 가능\\n4. 포커스 트래핑 (모달)",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "393ac4a7-85df-4aed-a06a-33430ed4ad7e",
+      "name": "[Phase 4-Epic 4.4] ARIA 속성 추가",
+      "description": "버튼, 링크, 입력 필드에 적절한 ARIA 레이블 추가.",
+      "notes": "2시간 예상. 스크린 리더 지원",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "6b5e54b4-47cf-4d08-b396-f299c855cdff"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "components/layout/Header.tsx",
+          "type": "TO_MODIFY",
+          "description": "ARIA 추가"
+        },
+        {
+          "path": "components/materials/CategoryFilter.tsx",
+          "type": "TO_MODIFY",
+          "description": "ARIA 추가"
+        }
+      ],
+      "implementationGuide": "1. 버튼에 aria-label 추가 (아이콘만 있는 경우)\\n2. 입력 필드에 aria-label 또는 label 추가\\n3. 토글 버튼에 aria-pressed\\n4. 필터 섹션에 role=\"region\" + aria-label\\n5. 에러 메시지에 aria-live",
+      "verificationCriteria": "1. aria-label 추가\\n2. role 속성 적절\\n3. aria-live 설정\\n4. 스크린 리더 테스트",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "ec240d0d-1526-4344-8545-cbfec065edf9",
+      "name": "[Phase 4-Epic 4.4] 색상 대비 확인 및 수정",
+      "description": "WCAG AA 기준 색상 대비 확인, 필요시 CSS 변수 조정.",
+      "notes": "1.5시간 예상. WCAG AA 목표",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "393ac4a7-85df-4aed-a06a-33430ed4ad7e"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/globals.css",
+          "type": "TO_MODIFY",
+          "description": "색상 변수 조정"
+        }
+      ],
+      "implementationGuide": "1. 온라인 대비 검사 도구 사용 (WebAIM, Contrast Ratio)\\n2. 텍스트 vs 배경 대비 확인\\n3. 버튼 텍스트 vs 배경\\n4. 링크 색상 대비\\n5. 불충분하면 CSS 변수 조정 (app/globals.css)",
+      "verificationCriteria": "1. 텍스트 대비 4.5:1 이상\\n2. 버튼 대비 3:1 이상\\n3. 모든 요소 확인\\n4. WCAG AA 충족",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "d19e6801-f7f9-4296-b18a-5fb5ed74d820",
+      "name": "[Phase 4-Epic 4.5] 페이지 전환 애니메이션 추가",
+      "description": "페이지 전환 시 fade/slide 애니메이션. (선택 사항)",
+      "notes": "2시간 예상. 선택 사항",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "ec240d0d-1526-4344-8545-cbfec065edf9"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "애니메이션 클래스"
+        }
+      ],
+      "implementationGuide": "1. Tailwind CSS 또는 Framer Motion 사용\\n2. 페이지 전환 시 fade in/out\\n3. 섹션 진입 시 slide up (선택)\\n4. 성능 고려 (prefer-reduced-motion)",
+      "verificationCriteria": "1. 페이지 전환 애니메이션\\n2. 60fps 성능\\n3. prefers-reduced-motion 존중",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "24fbc770-bcb1-497a-bedb-1dc55f4de522",
+      "name": "[Phase 4-Epic 4.5] Toast 알림 구현",
+      "description": "에러 발생 시 사용자 친화적 메시지 표시. shadcn/ui Toast 활용.",
+      "notes": "1.5시간 예상. 간단한 구현",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "d19e6801-f7f9-4296-b18a-5fb5ed74d820"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "Toaster 추가"
+        }
+      ],
+      "implementationGuide": "1. shadcn/ui Toaster, useToast 설정\\n2. 에러 발생 시 toast({ title, description, variant: 'destructive' })\\n3. 성공 메시지 (variant: 'default')\\n4. 자동 닫기 (3초)",
+      "verificationCriteria": "1. 에러 toast 표시\\n2. 메시지 명확\\n3. 자동 닫기\\n4. 여러 toast 관리",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "6560fb9b-219e-4f84-96a5-bd946a0a30b5",
+      "name": "[Phase 4-Epic 4.5] 즐겨찾기 기능",
+      "description": "로컬 스토리지 기반 즐겨찾기 추가/제거. (선택 사항)",
+      "notes": "3시간 예상. 선택 사항",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "24fbc770-bcb1-497a-bedb-1dc55f4de522"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "components/materials/MaterialCard.tsx",
+          "type": "TO_MODIFY",
+          "description": "하트 버튼 추가"
+        }
+      ],
+      "implementationGuide": "1. 하트 아이콘 버튼 (MaterialCard 상단)\\n2. 'use client' 필요\\n3. useLocalStorage 훅 (또는 직접 구현)\\n4. localStorage에 bookmarked IDs 저장\\n5. 상세 페이지에서도 표시",
+      "verificationCriteria": "1. 버튼 렌더링\\n2. 클릭 시 localStorage 저장\\n3. 새로고침 후 상태 유지\\n4. 목록에서 즐겨찾기 표시",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "ca12b3b4-4bfa-4a8c-a39f-903f54048655",
+      "name": "[Phase 4 최종 확인] 추가 기능 및 UX 개선 검증",
+      "description": "Phase 4 완료 기준 최종 확인: 검색, 추천, 반응형, 접근성.",
+      "notes": "Phase 4 완료의 마지막",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "6560fb9b-219e-4f84-96a5-bd946a0a30b5"
+        }
+      ],
+      "createdAt": "2026-01-18T05:31:14.846Z",
+      "updatedAt": "2026-01-18T05:31:14.846Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "REFERENCE",
+          "description": "전체 확인"
+        }
+      ],
+      "implementationGuide": "1. 검색 기능:\\n   - /materials?search=React 테스트\\n   - 결과 확인, 하이라이팅\\n2. 추천:\\n   - 상세 페이지에서 관련 자료 확인\\n3. 반응형:\\n   - DevTools로 모든 해상도 테스트\\n4. 접근성:\\n   - Tab 네비게이션\\n   - 스크린 리더 (NVDA/JAWS 또는 Chrome Extension)\\n   - 색상 대비\\n5. npm run lint 통과",
+      "verificationCriteria": "✅ Phase 4 Definition of Done:\\n1. 검색 기능 정상 동작\\n2. 관련 자료 추천 섹션 정상 표시\\n3. 모든 페이지 반응형 확인\\n4. 키보드로 모든 기능 접근\\n5. ARIA 속성 추가\\n6. 색상 대비 WCAG AA 충족",
+      "analysisResult": "## Phase 4: 추가 기능 및 UX 개선 (16개 작업)\n\n### Epic 4.1: 검색 (4개)\n- SearchBar UI, 검색 로직, 하이라이팅, Empty State\n\n### Epic 4.2: 추천 (3개)\n- 추천 로직, RelatedMaterials 컴포넌트, 페이지 통합\n\n### Epic 4.3: 반응형 (3개)\n- 모바일, 태블릿, 데스크톱\n\n### Epic 4.4: 접근성 (3개)\n- 키보드 네비게이션, ARIA, 색상 대비\n\n### Epic 4.5: UX 개선 (3개)\n- 애니메이션, Toast, 즐겨찾기\n\n다음: Phase 5"
+    },
+    {
+      "id": "018884cb-61f5-45f8-ab98-001d71067dfe",
+      "name": "[Phase 5-Epic 5.1] ISR 설정",
+      "description": "app/materials/page.tsx, app/materials/[id]/page.tsx에 revalidate 옵션 추가 (60초).",
+      "notes": "1.5시간 예상. Vercel ISR 캐싱",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "ca12b3b4-4bfa-4a8c-a39f-903f54048655"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "revalidate 추가"
+        },
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "revalidate 추가"
+        }
+      ],
+      "implementationGuide": "1. app/materials/page.tsx 상단에 추가:\\n   export const revalidate = 60;\\n2. app/materials/[id]/page.tsx에도 추가\\n3. generateStaticParams 함수 구현 (동적 라우트)\\n4. on-demand revalidation 고려 (선택)\\n5. 테스트: Notion 데이터 변경 → 60초 후 반영 확인",
+      "verificationCriteria": "1. revalidate 옵션 설정\\n2. generateStaticParams 구현\\n3. ISR 동작 테스트\\n4. Notion 데이터 변경 후 반영 시간 확인",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "65299c23-31da-4cdd-b814-7e496bfae90d",
+      "name": "[Phase 5-Epic 5.1] 이미지 최적화",
+      "description": "Next.js Image 컴포넌트로 Notion 이미지 렌더링, lazy loading 적용.",
+      "notes": "2시간 예상. 이미지 성능",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "018884cb-61f5-45f8-ab98-001d71067dfe"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "components/notion/BlockRenderer.tsx",
+          "type": "TO_MODIFY",
+          "description": "Image 최적화"
+        }
+      ],
+      "implementationGuide": "1. components/notion/BlockRenderer.tsx 수정\\n2. image 블록 렌더링 시 next/image 사용\\n3. Image 컴포넌트 속성:\\n   - src, alt 필수\\n   - width, height 설정 또는 fill + container\\n   - priority={false} (기본 lazy)\\n   - sizes prop (반응형)\\n4. Notion 이미지 URL 검증 (expires 처리)",
+      "verificationCriteria": "1. Image 컴포넌트 사용\\n2. lazy loading 적용\\n3. Lighthouse 성능 확인\\n4. 이미지 로드 속도",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "58bfe925-b52b-495e-bce7-1244affcc893",
+      "name": "[Phase 5-Epic 5.1] 번들 크기 분석 및 최적화",
+      "description": "@next/bundle-analyzer 설치, 불필요한 의존성 제거.",
+      "notes": "2시간 예상. 번들 최적화",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "65299c23-31da-4cdd-b814-7e496bfae90d"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "next.config.ts",
+          "type": "TO_MODIFY",
+          "description": "bundle-analyzer 설정"
+        },
+        {
+          "path": "package.json",
+          "type": "TO_MODIFY",
+          "description": "devDependency 추가"
+        }
+      ],
+      "implementationGuide": "1. npm install --save-dev @next/bundle-analyzer\\n2. next.config.ts 수정:\\n   const withBundleAnalyzer = require('@next/bundle-analyzer')({...})\\n3. ANALYZE=true npm run build 실행\\n4. 번들 크기 확인\\n5. 불필요한 라이브러리 제거 (예: 미사용 shadcn/ui 컴포넌트)\\n6. 다시 빌드 및 확인",
+      "verificationCriteria": "1. bundle-analyzer 설정\\n2. 번들 크기 분석\\n3. 불필요한 의존성 제거\\n4. 최종 번들 크기 확인",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "726fbce2-377f-41fc-95ef-f9b3405b61fe",
+      "name": "[Phase 5-Epic 5.1] 코드 스플리팅 적용",
+      "description": "필요시 dynamic import 활용, 라우트 기반 코드 스플리팅 확인.",
+      "notes": "1.5시간 예상. 선택적 최적화",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "58bfe925-b52b-495e-bce7-1244affcc893"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "components/notion/BlockRenderer.tsx",
+          "type": "REFERENCE",
+          "description": "dynamic import 검토"
+        }
+      ],
+      "implementationGuide": "1. Next.js App Router는 기본적으로 라우트 기반 코드 스플리팅 제공\\n2. 대용량 컴포넌트는 dynamic import 고려:\\n   import dynamic from 'next/dynamic'\\n   const BlockRenderer = dynamic(() => import(...))\\n3. 통계: Lighthouse DevTools로 JS 크기 확인",
+      "verificationCriteria": "1. 라우트 별 JS 크기 확인\\n2. dynamic import 적용 (필요시)\\n3. Lighthouse JS 메트릭 개선",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "14c61055-43e8-4831-bd20-dd0e56df49ba",
+      "name": "[Phase 5-Epic 5.2] 메타태그 설정",
+      "description": "app/layout.tsx, app/page.tsx, app/materials/page.tsx에 메타태그 추가 (title, description, OG).",
+      "notes": "2시간 예상. SEO 기본",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "726fbce2-377f-41fc-95ef-f9b3405b61fe"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "app/layout.tsx",
+          "type": "TO_MODIFY",
+          "description": "기본 metadata"
+        },
+        {
+          "path": "app/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "generateMetadata"
+        },
+        {
+          "path": "app/materials/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "generateMetadata"
+        }
+      ],
+      "implementationGuide": "1. app/layout.tsx에 기본 metadata 설정\\n2. app/page.tsx에서 generateMetadata 함수\\n3. app/materials/page.tsx에서 generateMetadata 함수\\n4. 메타데이터:\\n   - title: 페이지 제목\\n   - description: 50-160자\\n   - openGraph: { title, description, images, url }\\n   - twitter: { card, title, description }\\n5. 자료 상세 페이지 ([id])는 Notion 데이터 기반",
+      "verificationCriteria": "1. 메타데이터 설정\\n2. og 태그 포함\\n3. 각 페이지 확인 (View Source)\\n4. SEO 테스트 (웹마스터 도구)",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "9bf2cffd-ce91-442b-a05a-1868a228cdbd",
+      "name": "[Phase 5-Epic 5.2] sitemap.xml 생성",
+      "description": "app/sitemap.ts 작성. 모든 자료 URL 포함.",
+      "notes": "1.5시간 예상. Next.js 15 자동 생성",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "14c61055-43e8-4831-bd20-dd0e56df49ba"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "app/sitemap.ts",
+          "type": "CREATE",
+          "description": "sitemap"
+        }
+      ],
+      "implementationGuide": "1. app/sitemap.ts 생성\\n2. export const dynamic = 'force-dynamic' (ISR)\\n3. 모든 자료 조회: Service.getAllMaterials()\\n4. MetadataRoute.Sitemap 반환:\\n   [\\n     { url: 'https://domain/', lastModified: new Date(), priority: 1 },\\n     { url: 'https://domain/materials', priority: 0.8 },\\n     { url: 'https://domain/materials/[id]', priority: 0.7 },\\n     ...\\n   ]\\n5. Vercel이 자동으로 /sitemap.xml에 제공",
+      "verificationCriteria": "1. sitemap.ts 생성\\n2. https://domain/sitemap.xml 접근 가능\\n3. 모든 URL 포함\\n4. 형식 유효성 (XML)",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "c0ccb078-c915-4f49-b7c4-1336d7788415",
+      "name": "[Phase 5-Epic 5.2] robots.txt 생성",
+      "description": "app/robots.ts 작성.",
+      "notes": "30분 예상. 기본 설정",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "9bf2cffd-ce91-442b-a05a-1868a228cdbd"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "app/robots.ts",
+          "type": "CREATE",
+          "description": "robots.txt"
+        }
+      ],
+      "implementationGuide": "1. app/robots.ts 생성\\n2. export const dynamic = 'force-static'\\n3. 기본 설정:\\n   export default: {\\n     rules: [\\n       { userAgent: '*', allow: '/', disallow: ['/api/', '/?'] }\\n     ],\\n     sitemap: 'https://domain/sitemap.xml'\\n   }",
+      "verificationCriteria": "1. robots.ts 생성\\n2. https://domain/robots.txt 접근 가능\\n3. sitemap 링크 포함",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "17c86bcf-3b9f-442a-b545-47f211a9d332",
+      "name": "[Phase 5-Epic 5.2] 구조화된 데이터 추가",
+      "description": "JSON-LD 형식으로 Article schema 추가. (선택 사항)",
+      "notes": "2시간 예상. 선택 사항",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "c0ccb078-c915-4f49-b7c4-1336d7788415"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "app/materials/[id]/page.tsx",
+          "type": "TO_MODIFY",
+          "description": "JSON-LD 추가"
+        }
+      ],
+      "implementationGuide": "1. app/materials/[id]/page.tsx에 JSON-LD 추가\\n2. Script 컴포넌트 사용:\\n   <script type=\"application/ld+json\">\\n   {\\n     \"@context\": \"https://schema.org\",\\n     \"@type\": \"Article\",\\n     \"headline\": material.title,\\n     \"description\": material.summary,\\n     \"datePublished\": material.publishedDate,\\n     ...\\n   }\\n   </script>\\n3. 검증: Google Rich Results Test",
+      "verificationCriteria": "1. JSON-LD 추가\\n2. Script 태그 렌더링\\n3. Rich Results Test 통과",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "a7e8f562-8164-4b94-966b-68609c188e01",
+      "name": "[Phase 5-Epic 5.3] 전역 에러 핸들러 작성",
+      "description": "app/error.tsx 작성. 예상치 못한 에러 표시.",
+      "notes": "1.5시간 예상. 기본 에러 처리",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "17c86bcf-3b9f-442a-b545-47f211a9d332"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "app/error.tsx",
+          "type": "CREATE",
+          "description": "에러 페이지"
+        }
+      ],
+      "implementationGuide": "1. app/error.tsx 생성\\n2. 'use client'\\n3. Props: { error, reset }\\n4. 에러 메시지 표시 (사용자 친화적)\\n5. '다시 시도' 버튼 (reset() 호출)\\n6. 홈으로 돌아가기 링크\\n7. 선택: 에러 로깅",
+      "verificationCriteria": "1. error.tsx 생성\\n2. 에러 메시지 표시\\n3. '다시 시도' 버튼 동작\\n4. 실제 에러 발생 시 표시 확인",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "6f1d81d7-42f9-4ba8-b2e0-bc46b8f5f82a",
+      "name": "[Phase 5-Epic 5.3] 로깅 시스템 구축",
+      "description": "Sentry 또는 Vercel Analytics 연동. (선택 사항)",
+      "notes": "2시간 예상. 선택 사항",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "a7e8f562-8164-4b94-966b-68609c188e01"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "next.config.ts",
+          "type": "TO_MODIFY",
+          "description": "Sentry 설정"
+        }
+      ],
+      "implementationGuide": "1. Sentry 선택 (권장):\\n   - npm install @sentry/nextjs\\n   - Sentry 계정 생성, DSN 획득\\n   - withSentryConfig 설정 (next.config.ts)\\n   - 에러 발생 시 자동 로깅\\n2. 또는 Vercel Analytics:\\n   - npm install @vercel/analytics\\n   - app/layout.tsx에서 <Analytics /> 추가",
+      "verificationCriteria": "1. Sentry/Analytics 설정\\n2. 에러 이벤트 기록\\n3. 대시보드 접근 가능",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "2dfe656a-c0e2-48c8-a72f-37e6cd7ffacd",
+      "name": "[Phase 5-Epic 5.4] Vercel 프로젝트 생성 및 환경 변수 설정",
+      "description": "Vercel 대시보드에서 프로젝트 생성, 환경 변수 추가.",
+      "notes": "1시간 예상. 배포 준비",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "6f1d81d7-42f9-4ba8-b2e0-bc46b8f5f82a"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [],
+      "implementationGuide": "1. https://vercel.com/dashboard 접속\\n2. 'Add New...' → 'Project'\\n3. GitHub 리포지토리 선택\\n4. 프로젝트 설정:\\n   - Framework: Next.js\\n   - Root Directory: ./ (기본)\\n5. Environment Variables 추가:\\n   - NOTION_API_KEY\\n   - NOTION_DATABASE_ID\\n6. Deploy 버튼 클릭",
+      "verificationCriteria": "1. Vercel 프로젝트 생성\\n2. 환경 변수 2개 추가\\n3. Deploy 성공 (자동 또는 수동)",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "ee188b47-ccb7-42ec-975d-1913fe102b0a",
+      "name": "[Phase 5-Epic 5.4] 프로덕션 배포",
+      "description": "GitHub 연동, 자동 배포 설정.",
+      "notes": "1시간 예상. 배포 실행",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "2dfe656a-c0e2-48c8-a72f-37e6cd7ffacd"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [],
+      "implementationGuide": "1. Vercel은 GitHub Push 시 자동 배포\\n2. 또는 Vercel에서 Deploy 버튼 수동 클릭\\n3. 배포 진행 상황 모니터링 (Vercel Dashboard)\\n4. 배포 URL: https://[project-name].vercel.app\\n5. 커스텀 도메인 (선택): Settings → Domains",
+      "verificationCriteria": "1. 배포 완료\\n2. Vercel URL 접근 가능\\n3. 기본 페이지 로드 성공",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "eb8abe79-31f6-41d6-8dfa-5a4ba1a6b379",
+      "name": "[Phase 5-Epic 5.4] 배포 후 테스트",
+      "description": "프로덕션 환경에서 모든 기능 정상 동작 확인.",
+      "notes": "2시간 예상. QA",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "ee188b47-ccb7-42ec-975d-1913fe102b0a"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [],
+      "implementationGuide": "1. 프로덕션 URL 접속\\n2. 페이지 테스트:\\n   - / (홈): 로드, 섹션 표시\\n   - /materials: 목록, 필터 동작\\n   - /materials/[id]: 상세, 블록 렌더링\\n3. 기능 테스트:\\n   - 검색, 필터, 추천\\n   - 다크 모드, 반응형\\n4. 환경 변수 확인 (Notion 데이터 로드)\\n5. 콘솔 에러 확인 (DevTools)",
+      "verificationCriteria": "1. 모든 페이지 로드\\n2. 데이터 표시 정상\\n3. 기능 동작 확인\\n4. 콘솔 에러 없음",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "da024a64-aeb8-45f8-b138-7d0cd83044eb",
+      "name": "[Phase 5-Epic 5.4] 성능 측정 (Lighthouse)",
+      "description": "Lighthouse 스코어 측정, 90점 이상 목표.",
+      "notes": "1시간 예상. 성능 검증",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "eb8abe79-31f6-41d6-8dfa-5a4ba1a6b379"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [],
+      "implementationGuide": "1. Chrome DevTools → Lighthouse 탭\\n2. 'Generate report' 클릭\\n3. 지표 확인: Performance, Accessibility, Best Practices, SEO\\n4. 목표:\\n   - Performance: 90 이상\\n   - Accessibility: 90 이상\\n   - Best Practices: 90 이상\\n   - SEO: 90 이상\\n5. 문제 항목 해결 (필요시)",
+      "verificationCriteria": "1. Lighthouse 실행\\n2. 점수 확인 (모두 90 이상 목표)\\n3. 문제 항목 기록",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "1f824a66-6890-4569-bf66-5d3818a65308",
+      "name": "[Phase 5-Epic 5.4] 도메인 연결",
+      "description": "커스텀 도메인 설정 및 SSL 인증서 확인. (선택 사항)",
+      "notes": "1시간 예상. 선택 사항",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "da024a64-aeb8-45f8-b138-7d0cd83044eb"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [],
+      "implementationGuide": "1. 도메인 레지스트러에서 DNS 설정\\n2. Vercel Settings → Domains\\n3. 도메인 입력 및 DNS 레코드 추가\\n4. SSL 인증서 자동 발급 (Let's Encrypt)\\n5. https://[도메인] 접근 확인",
+      "verificationCriteria": "1. DNS 설정 완료\\n2. 도메인 접근 가능\\n3. SSL 인증서 유효\\n4. https 접속 확인",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "518f8c0f-8f3b-4f8a-8c7b-699df227b404",
+      "name": "[Phase 5-Epic 5.5] README.md 작성",
+      "description": "프로젝트 소개, 설치 방법, 환경 변수 설정 가이드.",
+      "notes": "2시간 예상. 문서화",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "1f824a66-6890-4569-bf66-5d3818a65308"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "README.md",
+          "type": "TO_MODIFY",
+          "description": "프로젝트 문서"
+        }
+      ],
+      "implementationGuide": "1. README.md 파일 수정\\n2. 내용:\\n   - 프로젝트 소개\\n   - 기술 스택\\n   - 설치 방법 (clone, npm install, npm run dev)\\n   - 환경 변수 설정 (.env.local)\\n   - 빌드 방법 (npm run build, npm start)\\n   - 배포 (Vercel)\\n   - 기여 가이드 (선택)\\n3. 마크다운 포맷 (제목, 코드 블록 등)",
+      "verificationCriteria": "1. README.md 작성\\n2. 설치 방법 명확\\n3. 환경 변수 가이드\\n4. 마크다운 포맷 정상",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "1852b40a-0b4c-46d5-aa6d-d1a3f44e7316",
+      "name": "[Phase 5-Epic 5.5] 운영 가이드 작성",
+      "description": "Notion 데이터베이스 사용 방법, 자료 등록 가이드.",
+      "notes": "1.5시간 예상. 운영 문서",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "518f8c0f-8f3b-4f8a-8c7b-699df227b404"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [
+        {
+          "path": "docs/OPERATION_GUIDE.md",
+          "type": "CREATE",
+          "description": "운영 가이드"
+        }
+      ],
+      "implementationGuide": "1. docs/OPERATION_GUIDE.md 생성 (또는 README 섹션)\\n2. 내용:\\n   - Notion 데이터베이스 구조\\n   - 필드별 입력 가이드 (Title, Category, Status, Type 등)\\n   - 새 자료 등록 방법\\n   - Status = 공개로 설정해야 웹에 노출\\n   - 이미지/첨부파일 추가 방법\\n   - 자료 수정/삭제 방법\\n3. 스크린샷 추가 (선택)",
+      "verificationCriteria": "1. 운영 가이드 작성\\n2. 필드 설명 명확\\n3. 등록 방법 상세\\n4. 예시 포함",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    },
+    {
+      "id": "bfab2d0c-df95-4981-b1a6-87ab4cd6a642",
+      "name": "[Phase 5 최종 확인] 최적화 및 배포 검증",
+      "description": "Phase 5 완료 기준 최종 확인: ISR, SEO, 배포, Lighthouse 90점+.",
+      "notes": "최종 검증",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "1852b40a-0b4c-46d5-aa6d-d1a3f44e7316"
+        }
+      ],
+      "createdAt": "2026-01-18T05:32:05.650Z",
+      "updatedAt": "2026-01-18T05:32:05.650Z",
+      "relatedFiles": [],
+      "implementationGuide": "1. ISR 확인:\\n   - Notion 데이터 변경 → 60초 후 반영\\n2. SEO 확인:\\n   - View Source에서 메타태그 확인\\n   - https://domain/sitemap.xml 확인\\n   - https://domain/robots.txt 확인\\n3. Lighthouse:\\n   - 모든 점수 90 이상 확인\\n4. 배포:\\n   - https://[domain] 또는 Vercel URL 접근\\n   - 모든 기능 동작 확인\\n5. 문서:\\n   - README.md, 운영 가이드 완성",
+      "verificationCriteria": "✅ Phase 5 & Project Definition of Done:\\n1. ISR 캐싱 정상 동작\\n2. Lighthouse 성능 90점 이상\\n3. SEO 메타태그 모든 페이지 적용\\n4. sitemap.xml, robots.txt 생성\\n5. Vercel 배포 성공\\n6. 프로덕션 환경 정상 동작\\n7. README 및 운영 가이드 작성\\n8. ✅ 프로젝트 완료",
+      "analysisResult": "## Phase 5: 최적화 및 배포 (19개 작업)\n\n### Epic 5.1: 성능 최적화 (4개)\n- ISR 설정, 이미지 최적화, 번들 크기, 코드 스플리팅\n\n### Epic 5.2: SEO 설정 (4개)\n- 메타태그, sitemap.xml, robots.txt, 구조화된 데이터\n\n### Epic 5.3: 에러 처리 (2개)\n- 전역 에러 핸들러, 로깅\n\n### Epic 5.4: 배포 (5개)\n- Vercel 설정, 배포, 테스트, Lighthouse, 도메인 연결\n\n### Epic 5.5: 문서화 (2개)\n- README.md, 운영 가이드\n\n### Phase 5 최종: 검증 (1개)\n\n## 완료! 🎉\n전체 5개 Phase, 68개 작업 생성 완료"
+    }
+  ]
+}
