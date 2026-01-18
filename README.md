@@ -41,7 +41,7 @@ Notion을 CMS로 활용한 스터디 자료 공유/열람 웹 서비스입니다
 npm install
 
 # 환경 변수 설정
-cp .env.example .env.local
+cp .env.local.example .env.local
 # .env.local 파일에 Notion API 키와 Database ID 입력
 ```
 
@@ -71,13 +71,63 @@ http://localhost:3000 에서 확인할 수 있습니다.
 ├── app/                    # Next.js App Router
 │   ├── layout.tsx          # 루트 레이아웃
 │   ├── page.tsx            # 홈페이지
+│   ├── materials/          # 자료 관련 페이지
 │   └── globals.css         # 전역 스타일
 ├── components/             # UI 컴포넌트
-├── lib/                    # 유틸리티 함수
+│   ├── ui/                 # shadcn/ui 컴포넌트
+│   ├── materials/          # 자료 관련 컴포넌트
+│   └── layout/             # 레이아웃 컴포넌트
+├── lib/                    # 유틸리티 및 라이브러리
+│   ├── utils.ts            # 공통 유틸리티
+│   └── notion/             # Notion API 관련
+│       ├── client.ts       # Notion 클라이언트
+│       ├── repository.ts   # 데이터 레이어
+│       └── mapper.ts       # 데이터 매퍼
+├── services/               # 비즈니스 로직
+│   └── studyMaterialService.ts
+├── types/                  # TypeScript 타입 정의
+│   ├── studyMaterial.ts
+│   ├── dto.ts
+│   └── notion.ts
 ├── docs/                   # 프로젝트 문서
-│   └── PRD.md              # 제품 요구사항 문서
+│   ├── PRD.md              # 제품 요구사항 문서
+│   └── ROADMAP.md          # 개발 로드맵
 └── public/                 # 정적 자산
 ```
+
+## Notion 데이터베이스 설정
+
+프로젝트를 실행하기 전에 Notion에서 다음과 같은 데이터베이스를 생성해야 합니다.
+
+### 필수 속성
+
+| 속성명 | 타입 | 설명 |
+|--------|------|------|
+| Title (제목) | title | 자료 제목 |
+| Category (카테고리) | select | 자료 카테고리 |
+| Tags (태그) | multi_select | 자료 태그 |
+| Published (게시일) | date | 게시 날짜 |
+| Status (상태) | select | 비공개/공개 |
+| Type (유형) | select | 문서/링크/영상/PDF |
+| Summary (요약) | rich_text | 자료 요약 |
+| Attachment (첨부파일) | files | 첨부파일 (선택) |
+
+### Notion Integration 설정
+
+1. [Notion Integrations](https://www.notion.so/my-integrations) 페이지에서 새 Integration 생성
+2. Integration Token 복사
+3. 데이터베이스에 Integration 공유 (Share → Add connections)
+4. 데이터베이스 ID 확인 (URL에서 추출)
+
+## 개발 로드맵
+
+자세한 개발 계획은 [ROADMAP.md](./docs/ROADMAP.md)를 참고하세요.
+
+- **Phase 1**: 프로젝트 초기 설정 및 골격 구축 ✅
+- **Phase 2**: Notion API 연동 및 데이터 레이어 구축 ✅
+- **Phase 3**: 핵심 기능 개발 ✅
+- **Phase 4**: 추가 기능 및 UX 개선 ✅
+- **Phase 5**: 최적화 및 배포 (진행 중)
 
 ## 라이선스
 
